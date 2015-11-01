@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net452": {
+      "wrappedProject": "../../AdventureWorks.Data.AdoDotNet/AdventureWorks.Data.AdoDotNet.csproj",
+      "bin": {
+        "assembly": "../../AdventureWorks.Data.AdoDotNet/obj/{configuration}/AdventureWorks.Data.AdoDotNet.dll",
+        "pdb": "../../AdventureWorks.Data.AdoDotNet/obj/{configuration}/AdventureWorks.Data.AdoDotNet.pdb"
+      }
+    }
+  }
+}

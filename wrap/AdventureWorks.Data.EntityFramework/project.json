@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net452": {
+      "wrappedProject": "../../AdventureWorks.Data.EntityFramework/AdventureWorks.Data.EntityFramework.csproj",
+      "bin": {
+        "assembly": "../../AdventureWorks.Data.EntityFramework/obj/{configuration}/AdventureWorks.Data.EntityFramework.dll",
+        "pdb": "../../AdventureWorks.Data.EntityFramework/obj/{configuration}/AdventureWorks.Data.EntityFramework.pdb"
+      },
+      "dependencies": {
+        "EntityFramework": "6.1.3"
+      }
+    }
+  }
+}

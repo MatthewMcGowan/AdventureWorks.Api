@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net452": {
+      "wrappedProject": "../../AdventureWorks.Logic/AdventureWorks.Logic.csproj",
+      "bin": {
+        "assembly": "../../AdventureWorks.Logic/obj/{configuration}/AdventureWorks.Logic.dll",
+        "pdb": "../../AdventureWorks.Logic/obj/{configuration}/AdventureWorks.Logic.pdb"
+      },
+      "dependencies": {
+        "AdventureWorks.Data.AdoDotNet": "1.0.0-*",
+        "AdventureWorks.Data.Dapper": "1.0.0-*",
+        "AdventureWorks.Data.EntityFramework": "1.0.0-*"
+      }
+    }
+  }
+}

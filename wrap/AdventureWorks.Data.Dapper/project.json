@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net452": {
+      "wrappedProject": "../../AdventureWorks.Data.Dapper/AdventureWorks.Data.Dapper.csproj",
+      "bin": {
+        "assembly": "../../AdventureWorks.Data.Dapper/obj/{configuration}/AdventureWorks.Data.Dapper.dll",
+        "pdb": "../../AdventureWorks.Data.Dapper/obj/{configuration}/AdventureWorks.Data.Dapper.pdb"
+      },
+      "dependencies": {
+        "Dapper": "1.42"
+      }
+    }
+  }
+}
