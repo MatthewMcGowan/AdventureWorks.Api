@@ -30,6 +30,7 @@ namespace AdventureWorks.Api.Controllers
 
         #region Public Actions
 
+        [HttpGet]
         public IHttpActionResult GetEmployees ()
         {
             var employeeBos = HumanResources.GetEmployees();
@@ -43,11 +44,15 @@ namespace AdventureWorks.Api.Controllers
             return Ok(employees);
         }
 
+        [HttpGet]
         public IHttpActionResult GetEmployee(int id)
         {
-            return getEmployeeById(id);
+            var employeeBo = HumanResources.GetEmployeeById(id);
+            var employee = Mapper.Map<EmployeeModel>(employeeBo);
+            return Ok(employee);
         }
 
+        [HttpPost]
         public void PostEmployee(EmployeeModel employee)
         {
             var employeeBo = Mapper.Map<Business.Objects.Employee>(employee);
@@ -55,43 +60,16 @@ namespace AdventureWorks.Api.Controllers
             HumanResources.UpdateEmployee(employeeBo);
         }
 
+        [HttpPut]
         public void PutEmployee()
         {
             throw new NotImplementedException();
         }
 
+        [HttpDelete]
         public void DeleteEmployee(int id)
         {
             throw new NotImplementedException();
-        }
-
-        #endregion
-
-        #region Private Methods
-
-        private IHttpActionResult getEmployeeById(int id)
-        {
-            var employeeBo = HumanResources.GetEmployeeById(id);
-            var employee = Mapper.Map<EmployeeModel>(employeeBo);
-            return Ok(employee);
-        }
-
-        private IHttpActionResult getEmployeeByIdTest(int id)
-        {
-            if (id < 1)
-            {
-                return NotFound();
-            }
-
-            var employee = new EmployeeModel
-            {
-                BusinessEntityId = id,
-                FirstName = "Matthew",
-                LastName = "McGowan",
-                JobTitle = "Software Engineer",
-            };
-
-            return Ok(employee);
         }
 
         #endregion
