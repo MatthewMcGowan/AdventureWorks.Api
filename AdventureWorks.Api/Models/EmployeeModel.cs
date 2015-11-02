@@ -19,8 +19,6 @@ namespace AdventureWorks.Api.Models
 
         public string JobTitle { get; set; }
 
-        public string OrganizationNode { get; set; }
-
         #endregion
     }
 }

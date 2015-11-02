@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventureWorks.Logic.Objects
+namespace AdventureWorks.Business.Objects
 {
-    public class EmployeeBO
+    public class Employee
     {
         #region Public Properties
 
@@ -18,9 +18,7 @@ namespace AdventureWorks.Logic.Objects
 
         public string LastName { get; set; }
 
-        public string JobTitle { get; set; }
-
-        public string OrganizationNode { get; set; }
+        public string JobTitle { get; set; }        
 
         #endregion
     }

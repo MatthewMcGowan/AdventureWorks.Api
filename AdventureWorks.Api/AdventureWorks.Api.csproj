@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -120,9 +121,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AdventureWorks.Logic\AdventureWorks.Logic.csproj">
+    <ProjectReference Include="..\AdventureWorks.Logic\AdventureWorks.Business.csproj">
       <Project>{53bf165b-2b1e-420f-828e-59dd8b2a2a58}</Project>
-      <Name>AdventureWorks.Logic</Name>
+      <Name>AdventureWorks.Business</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

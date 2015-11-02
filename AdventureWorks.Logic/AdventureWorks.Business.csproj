@@ -7,8 +7,8 @@
     <ProjectGuid>{53BF165B-2B1E-420F-828E-59DD8B2A2A58}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AdventureWorks.Logic</RootNamespace>
-    <AssemblyName>AdventureWorks.Logic</AssemblyName>
+    <RootNamespace>AdventureWorks.Business</RootNamespace>
+    <AssemblyName>AdventureWorks.Business</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,8 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HumanResourcesLogic.cs" />
-    <Compile Include="Objects\EmployeeBO.cs" />
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="Extensions\Mappings.cs" />
+    <Compile Include="Logic\HumanResources.cs" />
+    <Compile Include="Objects\Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

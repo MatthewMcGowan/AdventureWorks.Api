@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventureWorks.Logic
+namespace AdventureWorks.Business
 {
     using Data.EntityFramework.HumanResources;
-    using Data.EntityFramework;
-    using AutoMapper;
     using Objects;
+    using Extensions;
 
-    public class HumanResourcesLogic
+    public class HumanResources
     {
         #region Private Fields
 
@@ -21,35 +20,34 @@ namespace AdventureWorks.Logic
 
         #region Constructors
 
-        public HumanResourcesLogic()
+        public HumanResources()
         {
             EmployeeDA = new EmployeeDA();
-            Mapper.CreateMap<Employee, EmployeeBO>();
         }
 
         #endregion
 
         #region Public Methods
 
-        public IEnumerable<EmployeeBO> GetEmployees()
+        public List<Employee> GetEmployees()
         {
             var businessEntities = EmployeeDA.GetAllEmployees();
 
-            var employees = Mapper.Map<IEnumerable<EmployeeBO>>(businessEntities);
+            var employees = businessEntities.MapToBusinessLayer();
 
             return employees;
         }
 
-        public EmployeeBO GetEmployeeById(int id)
+        public Employee GetEmployeeById(int id)
         {
             var businessEntity = EmployeeDA.GetEmployeeByBusinessEntityId(id);
-            
-            var employee = Mapper.Map<EmployeeBO>(businessEntity);
+
+            var employee = businessEntity.MapToBusinessLayer();
 
             return employee;
         }
 
-        public void UpdateEmployee(EmployeeBO employee)
+        public void UpdateEmployee(Objects.Employee employee)
         {
             var businessEntity = EmployeeDA.GetEmployeeByBusinessEntityId(employee.BusinessEntityId);
 

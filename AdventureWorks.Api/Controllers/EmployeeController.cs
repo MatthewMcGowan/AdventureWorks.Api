@@ -8,15 +8,14 @@ using System.Web.Http;
 namespace AdventureWorks.Api.Controllers
 {
     using AdventureWorks.Api.Models;
-    using AdventureWorks.Logic;
-    using Logic.Objects;
+    using AdventureWorks.Business;
     using AutoMapper;
 
     public class EmployeeController : ApiController
     {
         #region Private Fields
 
-        private readonly HumanResourcesLogic HumanResourcesLogic;
+        private readonly HumanResources HumanResources;
 
         #endregion
 
@@ -24,7 +23,7 @@ namespace AdventureWorks.Api.Controllers
 
         public EmployeeController()
         {
-            HumanResourcesLogic = new HumanResourcesLogic();
+            HumanResources = new HumanResources();
         }
 
         #endregion
@@ -33,7 +32,7 @@ namespace AdventureWorks.Api.Controllers
 
         public IHttpActionResult GetEmployees ()
         {
-            var employeeBos = HumanResourcesLogic.GetEmployees();
+            var employeeBos = HumanResources.GetEmployees();
 
             if (employeeBos.Any())
             {
@@ -46,14 +45,14 @@ namespace AdventureWorks.Api.Controllers
 
         public IHttpActionResult GetEmployee(int id)
         {
-            return getEmployeeByIdEf(id);
+            return getEmployeeById(id);
         }
 
         public void PostEmployee(EmployeeModel employee)
         {
-            var employeeBo = Mapper.Map<EmployeeBO>(employee);
+            var employeeBo = Mapper.Map<Business.Objects.Employee>(employee);
 
-            HumanResourcesLogic.UpdateEmployee(employeeBo);
+            HumanResources.UpdateEmployee(employeeBo);
         }
 
         public void PutEmployee()
@@ -70,9 +69,9 @@ namespace AdventureWorks.Api.Controllers
 
         #region Private Methods
 
-        private IHttpActionResult getEmployeeByIdEf(int id)
+        private IHttpActionResult getEmployeeById(int id)
         {
-            var employeeBo = HumanResourcesLogic.GetEmployeeById(id);
+            var employeeBo = HumanResources.GetEmployeeById(id);
             var employee = Mapper.Map<EmployeeModel>(employeeBo);
             return Ok(employee);
         }
@@ -90,7 +89,6 @@ namespace AdventureWorks.Api.Controllers
                 FirstName = "Matthew",
                 LastName = "McGowan",
                 JobTitle = "Software Engineer",
-                OrganizationNode = "/"
             };
 
             return Ok(employee);

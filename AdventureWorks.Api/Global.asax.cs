@@ -8,7 +8,7 @@ using System.Web.Routing;
 namespace AdventureWorks.Api
 {
     using AutoMapper;
-    using Logic.Objects;
+    using Business.Objects;
     using Models;
 
     public class WebApiApplication : System.Web.HttpApplication
@@ -16,9 +16,7 @@ namespace AdventureWorks.Api
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
-
-            Mapper.CreateMap<EmployeeBO, EmployeeModel>();
-            Mapper.CreateMap<EmployeeModel, EmployeeBO>();
+            AutoMapperConfig.RegisterMapping();
         }
     }
 }
