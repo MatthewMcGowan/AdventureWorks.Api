@@ -8,6 +8,8 @@ using System.Web.Routing;
 namespace AdventureWorks.Api
 {
     using AutoMapper;
+    using Logic.Objects;
+    using Models;
 
     public class WebApiApplication : System.Web.HttpApplication
     {
@@ -15,7 +17,8 @@ namespace AdventureWorks.Api
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
-            Mapper.CreateMap<Logic.Objects.EmployeeBO, Api.Models.EmployeeModel>();
+            Mapper.CreateMap<EmployeeBO, EmployeeModel>();
+            Mapper.CreateMap<EmployeeModel, EmployeeBO>();
         }
     }
 }

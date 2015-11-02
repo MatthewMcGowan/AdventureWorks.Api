@@ -31,16 +31,14 @@ namespace AdventureWorks.Data.EntityFramework.HumanResources
 
         #region Public Methods
 
-        public Employee GetEmployeeByBusinessEntityId(int id)
+        public IEnumerable<Employee> GetAllEmployees()
         {
-            var employee = db.Employees.Find(id);
-
-            return employee;
+            return db.Employees;
         }
 
-        public string GetJobTitleByBusinessEntityId(int id)
+        public Employee GetEmployeeByBusinessEntityId(int id)
         {
-            return db.Employees.Find(id).JobTitle;
+            return db.Employees.Find(id);
         }
 
         #endregion
