@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace AdventureWorks.BusinessObjects
 {
-    public class Employee
+    using AdventureWorks.Enumerations;
+
+    public class PersonPhone
     {
         #region Public Properties
 
         public int BusinessEntityId { get; set; }
 
-        public string FirstName { get; set; }
+        public string PhoneNumber { get; set; }
 
-        public string MiddleName { get; set; }
-
-        public string LastName { get; set; }
-
-        public string JobTitle { get; set; }        
+        public PhoneNumberTypeEnum PhoneNumberType { get; set; }
 
         #endregion
     }

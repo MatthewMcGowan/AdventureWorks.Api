@@ -15,5 +15,10 @@ namespace AdventureWorks.Business.Extensions
                 action(item);
             }
         }
+
+        public static bool IsNullOrEmpty<T> (this IEnumerable<T> enumeration)
+        {
+            return enumeration == null || !enumeration.Any();
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿using AdventureWorks.Business.Objects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +8,14 @@ namespace AdventureWorks.Business.Interfaces
 {
     public interface IHumanResourcesService
     {
-        List<Employee> GetEmployees();
+        List<BusinessObjects.Employee> GetEmployees();
 
-        Employee GetEmployeeById(int id);
+        BusinessObjects.Employee GetEmployeeById(int id);
 
-        void UpdateEmployee(Employee employee);
+        bool UpdateEmployee(BusinessObjects.Employee employee);
+
+        bool AddPhoneNumber(BusinessObjects.PersonPhone phone);
+
+        bool DeletePhoneNumber(BusinessObjects.PersonPhone phone);
     }
 }

@@ -6,21 +6,18 @@ using System.Threading.Tasks;
 
 namespace AdventureWorks.Business.Extensions
 {
-    using Objects;
-    using AdventureWorks.Business.Extensions;
-
     public static class MappingExtensions
     {
-        #region Map To Business Layer
-
-        public static Employee MapToBusinessLayer(this Data.EntityFramework.Employee source)
+        public static BusinessObjects.Employee MapToBusinessLayer(this Data.EntityFramework.Employee source)
         {
+            // If null object, return a null object
             if (source == null)
             {
                 return null;
             }
 
-            return new Employee
+            // Create new BO with data mapped
+            return new BusinessObjects.Employee
             {
                 BusinessEntityId = source.BusinessEntityID,
                 FirstName = source.Person.FirstName,
@@ -30,29 +27,22 @@ namespace AdventureWorks.Business.Extensions
             };
         }
 
-        public static List<Employee> MapToBusinessLayer(this IEnumerable<Data.EntityFramework.Employee> source)
+        public static List<BusinessObjects.Employee> MapToBusinessLayer(this IEnumerable<Data.EntityFramework.Employee> source)
         {
-            var result = new List<Employee>();
+            // Return empty list if none found
+            if (source.IsNullOrEmpty())
+            {
+                return new List<BusinessObjects.Employee>();
+            }
 
+            // Create new list to return
+            var result = new List<BusinessObjects.Employee>();
+
+            // Map the IEnumerable entities to BO list
             source.ForEach(e => result.Add(e.MapToBusinessLayer()));
 
+            // Return the list
             return result;
         }
-
-        #endregion
-
-        #region Map To Data Access Layer
-
-        public static Data.EntityFramework.Employee MapToDataAccessLayer(this Employee source)
-        {
-            var employee = new Data.EntityFramework.Employee();
-
-            target.Person.FirstName = source.FirstName;
-            target.Person.MiddleName = source.MiddleName;
-            target.Person.LastName = source.LastName;
-            target.JobTitle = source.JobTitle;
-        }
-
-        #endregion
     }
 }

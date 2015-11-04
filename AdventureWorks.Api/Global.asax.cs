@@ -8,7 +8,6 @@ using System.Web.Routing;
 namespace AdventureWorks.Api
 {
     using AutoMapper;
-    using Business.Objects;
     using Models;
 
     public class WebApiApplication : System.Web.HttpApplication

@@ -18,9 +18,29 @@ namespace AdventureWorks.Business.Logic
 
         #region Constructors
 
-        public BaseService()
+        protected BaseService()
         {
-            DataAccessMethod = System.Configuration.ConfigurationManager.AppSettings["DataAccessMethod"].ToEnum<DataAccessMethodEnum>();
+            try
+            {
+                DataAccessMethod = System.Configuration.ConfigurationManager.AppSettings["DataAccessMethod"].ToEnum<DataAccessMethodEnum>();
+            }
+            catch(Exception e)
+            {
+                throw new Exception("Data access method configured incorrectly in config.", e);
+            }
+        }
+
+        #endregion
+
+        #region Public Properties
+
+        protected int DataMethod
+        {
+            get
+            {
+                // Readability/succinctness
+                return (int)DataAccessMethod;
+            }
         }
 
         #endregion

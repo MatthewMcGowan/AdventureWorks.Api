@@ -59,23 +59,48 @@ namespace AdventureWorks.Api.Controllers
         }
 
         [HttpPost]
-        public void PostEmployee(EmployeeModel employee)
+        public IHttpActionResult PostEmployee(EmployeeModel model)
         {
-            var employeeBo = Mapper.Map<Business.Objects.Employee>(employee);
+            var employee = Mapper.Map<BusinessObjects.Employee>(model);
 
-            HumanResourcesService.UpdateEmployee(employeeBo);
+            bool updated = HumanResourcesService.UpdateEmployee(employee);
+
+            if (!updated)
+            {
+                return NotFound();
+            }
+
+            return Ok();
         }
 
         [HttpPut]
-        public void PutEmployee()
+        public IHttpActionResult PutEmployeePhoneNumber(EmployeePhoneModel model)
         {
-            throw new NotImplementedException();
+            var phoneNumber = Mapper.Map<BusinessObjects.PersonPhone>(model);
+
+            bool added = HumanResourcesService.AddPhoneNumber(phoneNumber);
+
+            if (!added)
+            {
+                return NotFound();
+            }
+
+            return Ok();
         }
 
         [HttpDelete]
-        public void DeleteEmployee(int id)
+        public IHttpActionResult DeleteEmployeePhoneNumber(EmployeePhoneModel model)
         {
-            throw new NotImplementedException();
+            var phoneNumber = Mapper.Map<BusinessObjects.PersonPhone>(model);
+
+            bool deleted = HumanResourcesService.DeletePhoneNumber(phoneNumber);
+
+            if (!deleted)
+            {
+                return NotFound();
+            }
+
+            return Ok();
         }
 
         #endregion

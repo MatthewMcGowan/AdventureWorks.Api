@@ -133,11 +133,14 @@
       <DependentUpon>AdventureWorks2012.tt</DependentUpon>
     </Compile>
     <Compile Include="Extensions\MappingExtensions.cs" />
-    <Compile Include="HumanResources\EmployeeDA.cs" />
+    <Compile Include="Core\BaseDA.cs" />
+    <Compile Include="Core\EmployeeDA.cs" />
+    <Compile Include="Core\PersonPhoneDA.cs" />
     <Compile Include="Illustration.cs">
       <DependentUpon>AdventureWorks2012.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IEmployeeDA.cs" />
+    <Compile Include="Interfaces\IPersonPhoneDA.cs" />
     <Compile Include="JobCandidate.cs">
       <DependentUpon>AdventureWorks2012.tt</DependentUpon>
     </Compile>
@@ -386,6 +389,10 @@
     <ProjectReference Include="..\AdventureWorks.BusinessObjects\AdventureWorks.BusinessObjects.csproj">
       <Project>{5173f1d3-c7d3-4283-88a3-49c87f9f43c2}</Project>
       <Name>AdventureWorks.BusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdventureWorks.Enumerations\AdventureWorks.Enumerations.csproj">
+      <Project>{6946274f-9318-4462-bf6e-ad874bc2695a}</Project>
+      <Name>AdventureWorks.Enumerations</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

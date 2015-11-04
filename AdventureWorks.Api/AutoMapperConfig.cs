@@ -5,7 +5,6 @@ using System.Web;
 
 namespace AdventureWorks.Api
 {
-    using Business.Objects;
     using AutoMapper;
     using Models;
 
@@ -13,8 +12,12 @@ namespace AdventureWorks.Api
     {
         public static void RegisterMapping()
         {
-            Mapper.CreateMap<Employee, EmployeeModel>();
-            Mapper.CreateMap<EmployeeModel, Employee>();
+            // Employee
+            Mapper.CreateMap<EmployeeModel, BusinessObjects.Employee>();
+            Mapper.CreateMap<BusinessObjects.Employee, EmployeeModel>();
+
+            // Phone Number
+            Mapper.CreateMap<EmployeePhoneModel, BusinessObjects.PersonPhone>();
         }
     }
 }

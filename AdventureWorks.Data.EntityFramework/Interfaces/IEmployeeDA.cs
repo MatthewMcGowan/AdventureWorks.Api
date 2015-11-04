@@ -12,6 +12,6 @@ namespace AdventureWorks.Data.EntityFramework.Interfaces
 
         Employee GetEmployeeByBusinessEntityId(int id);
 
-        void UpdateEmployee(Employee employee);
+        void UpdateEmployee(BusinessObjects.Employee employee);
     }
 }

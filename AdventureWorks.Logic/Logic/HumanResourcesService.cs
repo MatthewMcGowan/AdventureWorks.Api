@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventureWorks.Business
 {
-    using Data.EntityFramework.HumanResources;
-    using Objects;
+    using Data.EntityFramework.Core;
     using Extensions;
     using Logic;
     using Interfaces;
@@ -20,16 +19,19 @@ namespace AdventureWorks.Business
 
         private readonly IEmployeeDA EmployeeDA;
 
+        private readonly IPersonPhoneDA PhoneDA;
+
         #endregion
 
         #region Constructors
 
-        public HumanResourcesService(IEmployeeDA employeeDA) : base()
+        public HumanResourcesService(IEmployeeDA employeeDA, IPersonPhoneDA phoneDA) : base()
         {
             EmployeeDA = employeeDA;
+            PhoneDA = phoneDA;
         }
 
-        public HumanResourcesService() : this(new EmployeeDA())
+        public HumanResourcesService() : this(new EmployeeDA(), new PersonPhoneDA())
         {
         }
 
@@ -37,46 +39,95 @@ namespace AdventureWorks.Business
 
         #region Public Methods
 
-        public List<Employee> GetEmployees()
+        public List<BusinessObjects.Employee> GetEmployees()
         {
-            List<Employee> employees;
-
-            switch (DataAccessMethod)
+            if(DataMethod == 0)
             {
-                case 0:
-                    employees = EmployeeDA.GetAllEmployees().MapToBusinessLayer();
-                    break;
-                default:
-                    throw new NotImplementedException();
+                return EmployeeDA.GetAllEmployees().MapToBusinessLayer();
             }
-
-
-            return employees;
+            else if(DataMethod == 1)
+            {
+                throw new NotImplementedException();
+            }
+            else if(DataMethod == 2)
+            {
+                throw new NotImplementedException();
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
 
-        public Employee GetEmployeeById(int id)
+        public BusinessObjects.Employee GetEmployeeById(int id)
         {
-            Employee employee;
-
-            switch(DataAccessMethod)
+            if (DataMethod == 0)
             {
-                case 0:
-                    employee = EmployeeDA.GetEmployeeByBusinessEntityId(id).MapToBusinessLayer();
-                    break;
-                default:
-                    throw new NotImplementedException();
+                return EmployeeDA.GetEmployeeByBusinessEntityId(id).MapToBusinessLayer();
             }
-
-            return employee;
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
 
-        public void UpdateEmployee(Employee employee)
+        public bool UpdateEmployee(BusinessObjects.Employee employee)
         {
-            var e = EmployeeDA.GetEmployeeByBusinessEntityId(employee.BusinessEntityId);
+            if(DataMethod == 0)
+            {
+                EmployeeDA.UpdateEmployee(employee);
+                return true;
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+        }
 
-            e.MapFromBusinessLayer(employee);
+        public bool AddPhoneNumber(BusinessObjects.PersonPhone phone)
+        {
+            // Ensure person is an employee
+            var employee = EmployeeDA.GetEmployeeByBusinessEntityId(phone.BusinessEntityId);
 
-            EmployeeDA.UpdateEmployee(e);
+            if (employee == null)
+            {
+                // Rather than updating a non-employee, return false
+                return false;
+            }
+
+            // Add the phone number
+            if (DataMethod == 0)
+            {
+                PhoneDA.AddPhoneNumber(phone);
+                return true;
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool DeletePhoneNumber(BusinessObjects.PersonPhone phone)
+        {
+            // Ensure person is an employee
+            var employee = EmployeeDA.GetEmployeeByBusinessEntityId(phone.BusinessEntityId);
+
+            if (employee == null)
+            {
+                // Rather than updating a non-employee, return false
+                return false;
+            }
+
+            // Delete the phone number
+            if (DataMethod == 0)
+            {
+                PhoneDA.DeletePhoneNumber(phone);
+                return true;
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
 
         #endregion
