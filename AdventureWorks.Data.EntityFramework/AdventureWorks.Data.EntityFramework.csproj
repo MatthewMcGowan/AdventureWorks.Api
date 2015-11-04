@@ -132,10 +132,12 @@
     <Compile Include="ErrorLog.cs">
       <DependentUpon>AdventureWorks2012.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\MappingExtensions.cs" />
     <Compile Include="HumanResources\EmployeeDA.cs" />
     <Compile Include="Illustration.cs">
       <DependentUpon>AdventureWorks2012.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IEmployeeDA.cs" />
     <Compile Include="JobCandidate.cs">
       <DependentUpon>AdventureWorks2012.tt</DependentUpon>
     </Compile>
@@ -379,6 +381,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdventureWorks.BusinessObjects\AdventureWorks.BusinessObjects.csproj">
+      <Project>{5173f1d3-c7d3-4283-88a3-49c87f9f43c2}</Project>
+      <Name>AdventureWorks.BusinessObjects</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

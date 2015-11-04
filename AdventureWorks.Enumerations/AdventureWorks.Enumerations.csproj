@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{53BF165B-2B1E-420F-828E-59DD8B2A2A58}</ProjectGuid>
+    <ProjectGuid>{6946274F-9318-4462-BF6E-AD874BC2695A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AdventureWorks.Business</RootNamespace>
-    <AssemblyName>AdventureWorks.Business</AssemblyName>
+    <RootNamespace>AdventureWorks.Enumerations</RootNamespace>
+    <AssemblyName>AdventureWorks.Enumerations</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,7 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,35 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\EnumerationExtensions.cs" />
-    <Compile Include="Extensions\IEnumerableExtensions.cs" />
-    <Compile Include="Extensions\MappingExtensions.cs" />
-    <Compile Include="Interfaces\IHumanResourcesService.cs" />
-    <Compile Include="Logic\BaseService.cs" />
-    <Compile Include="Logic\HumanResourcesService.cs" />
+    <Compile Include="DataAccessMethodEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AdventureWorks.BusinessObjects\AdventureWorks.BusinessObjects.csproj">
-      <Project>{5173f1d3-c7d3-4283-88a3-49c87f9f43c2}</Project>
-      <Name>AdventureWorks.BusinessObjects</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AdventureWorks.Data.AdoDotNet\AdventureWorks.Data.AdoDotNet.csproj">
-      <Project>{397b0f97-a72e-4b6d-96fc-591dfca8e7c9}</Project>
-      <Name>AdventureWorks.Data.AdoDotNet</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AdventureWorks.Data.Dapper\AdventureWorks.Data.Dapper.csproj">
-      <Project>{230f1580-499e-4acb-ab64-356c07159570}</Project>
-      <Name>AdventureWorks.Data.Dapper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AdventureWorks.Data.EntityFramework\AdventureWorks.Data.EntityFramework.csproj">
-      <Project>{f144d203-008e-4f2a-8303-ea8aa98db64b}</Project>
-      <Name>AdventureWorks.Data.EntityFramework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AdventureWorks.Enumerations\AdventureWorks.Enumerations.csproj">
-      <Project>{6946274f-9318-4462-bf6e-ad874bc2695a}</Project>
-      <Name>AdventureWorks.Enumerations</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

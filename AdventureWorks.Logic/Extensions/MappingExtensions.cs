@@ -9,8 +9,10 @@ namespace AdventureWorks.Business.Extensions
     using Objects;
     using AdventureWorks.Business.Extensions;
 
-    public static class Mappings
+    public static class MappingExtensions
     {
+        #region Map To Business Layer
+
         public static Employee MapToBusinessLayer(this Data.EntityFramework.Employee source)
         {
             if (source == null)
@@ -36,5 +38,21 @@ namespace AdventureWorks.Business.Extensions
 
             return result;
         }
+
+        #endregion
+
+        #region Map To Data Access Layer
+
+        public static Data.EntityFramework.Employee MapToDataAccessLayer(this Employee source)
+        {
+            var employee = new Data.EntityFramework.Employee();
+
+            target.Person.FirstName = source.FirstName;
+            target.Person.MiddleName = source.MiddleName;
+            target.Person.LastName = source.LastName;
+            target.JobTitle = source.JobTitle;
+        }
+
+        #endregion
     }
 }

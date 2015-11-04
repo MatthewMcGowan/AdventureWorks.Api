@@ -11,8 +11,9 @@ namespace AdventureWorks.Data.EntityFramework.HumanResources
 {
     using System.Linq;
     using System.Data.Entity;
+    using Interfaces;
 
-    public class EmployeeDA
+    public class EmployeeDA : IEmployeeDA
     {
         #region Private Fields
 
@@ -39,6 +40,16 @@ namespace AdventureWorks.Data.EntityFramework.HumanResources
         public Employee GetEmployeeByBusinessEntityId(int id)
         {
             return db.Employees.Find(id);
+        }
+
+        public void UpdateEmployee(Employee employee)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveChangesToEntities()
+        {
+            db.SaveChanges();
         }
 
         #endregion

@@ -26,6 +26,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Api", "Adven
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Api.Test", "AdventureWorks.Api.Test\AdventureWorks.Api.Test.csproj", "{E3221CCB-565E-47C7-A509-DAA52BC2B524}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Enumerations", "AdventureWorks.Enumerations\AdventureWorks.Enumerations.csproj", "{6946274F-9318-4462-BF6E-AD874BC2695A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.BusinessObjects", "AdventureWorks.BusinessObjects\AdventureWorks.BusinessObjects.csproj", "{5173F1D3-C7D3-4283-88A3-49C87F9F43C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +64,14 @@ Global
 		{E3221CCB-565E-47C7-A509-DAA52BC2B524}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3221CCB-565E-47C7-A509-DAA52BC2B524}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3221CCB-565E-47C7-A509-DAA52BC2B524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6946274F-9318-4462-BF6E-AD874BC2695A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6946274F-9318-4462-BF6E-AD874BC2695A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6946274F-9318-4462-BF6E-AD874BC2695A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6946274F-9318-4462-BF6E-AD874BC2695A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5173F1D3-C7D3-4283-88A3-49C87F9F43C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5173F1D3-C7D3-4283-88A3-49C87F9F43C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5173F1D3-C7D3-4283-88A3-49C87F9F43C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5173F1D3-C7D3-4283-88A3-49C87F9F43C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,5 +84,7 @@ Global
 		{397B0F97-A72E-4B6D-96FC-591DFCA8E7C9} = {D9D742C9-1DEF-4559-A4F2-59E013B1D0E1}
 		{80CC1BD5-2B0F-47E9-A4A1-20716DDAD986} = {D9D742C9-1DEF-4559-A4F2-59E013B1D0E1}
 		{E3221CCB-565E-47C7-A509-DAA52BC2B524} = {675F7126-9354-4B31-BF72-20E472783CED}
+		{6946274F-9318-4462-BF6E-AD874BC2695A} = {D9D742C9-1DEF-4559-A4F2-59E013B1D0E1}
+		{5173F1D3-C7D3-4283-88A3-49C87F9F43C2} = {D9D742C9-1DEF-4559-A4F2-59E013B1D0E1}
 	EndGlobalSection
 EndGlobal

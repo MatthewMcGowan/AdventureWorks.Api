@@ -4,26 +4,32 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Configuration;
 
 namespace AdventureWorks.Api.Controllers
 {
     using AdventureWorks.Api.Models;
     using AdventureWorks.Business;
+    using Business.Interfaces;
     using AutoMapper;
 
     public class EmployeeController : ApiController
     {
         #region Private Fields
 
-        private readonly HumanResources HumanResources;
+        private readonly IHumanResourcesService HumanResourcesService;
 
         #endregion
 
         #region Constructors
 
-        public EmployeeController()
+        public EmployeeController(IHumanResourcesService humanResourcesService)
         {
-            HumanResources = new HumanResources();
+            HumanResourcesService = humanResourcesService;
+        }
+
+        public EmployeeController() : this(new HumanResourcesService())
+        {
         }
 
         #endregion
@@ -33,7 +39,7 @@ namespace AdventureWorks.Api.Controllers
         [HttpGet]
         public IHttpActionResult GetEmployees ()
         {
-            var employeeBos = HumanResources.GetEmployees();
+            var employeeBos = HumanResourcesService.GetEmployees();
 
             if (employeeBos.Any())
             {
@@ -47,7 +53,7 @@ namespace AdventureWorks.Api.Controllers
         [HttpGet]
         public IHttpActionResult GetEmployee(int id)
         {
-            var employeeBo = HumanResources.GetEmployeeById(id);
+            var employeeBo = HumanResourcesService.GetEmployeeById(id);
             var employee = Mapper.Map<EmployeeModel>(employeeBo);
             return Ok(employee);
         }
@@ -57,7 +63,7 @@ namespace AdventureWorks.Api.Controllers
         {
             var employeeBo = Mapper.Map<Business.Objects.Employee>(employee);
 
-            HumanResources.UpdateEmployee(employeeBo);
+            HumanResourcesService.UpdateEmployee(employeeBo);
         }
 
         [HttpPut]
