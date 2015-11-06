@@ -66,6 +66,26 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AdventureWorks.BusinessObjects\AdventureWorks.BusinessObjects.csproj">
+      <Project>{5173f1d3-c7d3-4283-88a3-49c87f9f43c2}</Project>
+      <Name>AdventureWorks.BusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdventureWorks.Data.AdoDotNet\AdventureWorks.Data.AdoDotNet.csproj">
+      <Project>{397b0f97-a72e-4b6d-96fc-591dfca8e7c9}</Project>
+      <Name>AdventureWorks.Data.AdoDotNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdventureWorks.Data.Dapper\AdventureWorks.Data.Dapper.csproj">
+      <Project>{230f1580-499e-4acb-ab64-356c07159570}</Project>
+      <Name>AdventureWorks.Data.Dapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdventureWorks.Data.EntityFramework\AdventureWorks.Data.EntityFramework.csproj">
+      <Project>{f144d203-008e-4f2a-8303-ea8aa98db64b}</Project>
+      <Name>AdventureWorks.Data.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdventureWorks.Enumerations\AdventureWorks.Enumerations.csproj">
+      <Project>{6946274f-9318-4462-bf6e-ad874bc2695a}</Project>
+      <Name>AdventureWorks.Enumerations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AdventureWorks.Logic\AdventureWorks.Business.csproj">
       <Project>{53bf165b-2b1e-420f-828e-59dd8b2a2a58}</Project>
       <Name>AdventureWorks.Business</Name>
