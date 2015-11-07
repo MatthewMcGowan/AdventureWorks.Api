@@ -12,9 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{675F7126-9354-4B31-BF72-20E472783CED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Business", "AdventureWorks.Logic\AdventureWorks.Business.csproj", "{53BF165B-2B1E-420F-828E-59DD8B2A2A58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Business", "AdventureWorks.Business\AdventureWorks.Business.csproj", "{53BF165B-2B1E-420F-828E-59DD8B2A2A58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Business.Test", "AdventureWorks.Logic.Test\AdventureWorks.Business.Test.csproj", "{1BA3E4E7-8F14-4231-8D2E-9938305468A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Business.Test", "AdventureWorks.Business.Test\AdventureWorks.Business.Test.csproj", "{1BA3E4E7-8F14-4231-8D2E-9938305468A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Data.EntityFramework", "AdventureWorks.Data.EntityFramework\AdventureWorks.Data.EntityFramework.csproj", "{F144D203-008E-4F2A-8303-EA8AA98DB64B}"
 EndProject
