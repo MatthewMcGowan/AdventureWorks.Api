@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace AdventureWorks.Business.Logic
 {
     using AdventureWorks.Enumerations;
-    using AdventureWorks.Business.Extensions;
+    using AdventureWorks.Extensions;
     public abstract class BaseService
     {
         #region Private Fields

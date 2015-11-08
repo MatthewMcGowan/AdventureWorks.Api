@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace AdventureWorks.Data.EntityFramework.Core
 {
-    using Interfaces;
     using Extensions;
+    using Data.Interfaces;
 
     public class PersonPhoneDA : BaseDA, IPersonPhoneDA
     {

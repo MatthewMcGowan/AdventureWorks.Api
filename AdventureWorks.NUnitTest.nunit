@@ -1,0 +1,9 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+  <Config name="Debug" binpathtype="Auto">
+    <assembly path="AdventureWorks.Api.Test\bin\Debug\AdventureWorks.Api.Test.dll" />
+    <assembly path="AdventureWorks.Business.Test\bin\Debug\AdventureWorks.Business.Test.dll" />
+    <assembly path="AdventureWorks.Data.EntityFramework.Test\bin\Debug\AdventureWorks.Data.EntityFramework.Test.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto" />
+</NUnitProject>
