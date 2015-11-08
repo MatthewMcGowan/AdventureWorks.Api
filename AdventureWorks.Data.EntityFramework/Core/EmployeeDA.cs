@@ -6,12 +6,12 @@ using System.Text;
 using System.Globalization;
 using System.Data.SqlClient;
 using System.Data.Common;
+using AdventureWorks.Data.Interfaces;
 
 namespace AdventureWorks.Data.EntityFramework.Core
 {
     using System.Linq;
     using System.Data.Entity;
-    using Interfaces;
     using Extensions;
 
     public class EmployeeDA : BaseDA, IEmployeeDA
@@ -26,16 +26,16 @@ namespace AdventureWorks.Data.EntityFramework.Core
 
         #region Public Methods
 
-        public IEnumerable<Employee> GetAllEmployees()
+        public List<BusinessObjects.Employee> GetAllEmployees()
         {
             // Return all employees
-            return Db.Employees;
+            return Db.Employees.MapToBusinessLayer();
         }
 
-        public Employee GetEmployeeByBusinessEntityId(int id)
+        public BusinessObjects.Employee GetEmployeeByBusinessEntityId(int id)
         {
             // Return employee with specified BusinessEntityId
-            return Db.Employees.Find(id);
+            return Db.Employees.Find(id).MapToBusinessLayer();
         }
 
         public void UpdateEmployee(BusinessObjects.Employee employee)

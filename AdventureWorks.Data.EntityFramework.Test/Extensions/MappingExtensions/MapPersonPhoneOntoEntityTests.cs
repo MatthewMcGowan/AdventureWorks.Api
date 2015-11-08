@@ -40,21 +40,24 @@ namespace AdventureWorks.Data.EntityFramework.Test.Extensions.MappingExtensions
         }
 
         [Test]
-        public void MapOntoEntity_PersonPhoneBusinessObjectMappedOntoPersonPhoneEntity_NoOtherFieldsChange()
-        {
-
-        }
-
-        [Test]
         public void MapOntoEntity_NullPersonPhoneBusinessObject_NullReferenceExceptionThrown()
         {
+            // Arrange
+            BusinessObjects.PersonPhone nullPhoneBo = null;
 
+            // Act/Assert
+            Assert.Throws<NullReferenceException>(() => nullPhoneBo.MapOntoEntity(phoneEntity));
         }
 
         [Test]
         public void MapOntoEntity_NullPersonPhoneEntity_NullReferenceExceptionThrown()
         {
+            // Arrange
+            AddValidDataToPhoneBo();
+            EntityFramework.PersonPhone nullPhoneEntity = null;
 
+            // Act/Assert
+            Assert.Throws<NullReferenceException>(() => phoneBo.MapOntoEntity(nullPhoneEntity));
         }
 
         private void AddValidDataToPhoneBo()

@@ -37,7 +37,7 @@ namespace AdventureWorks.Api.Controllers
         #region Public Actions
 
         [HttpGet]
-        public IHttpActionResult GetEmployees ()
+        public IHttpActionResult GetEmployees()
         {
             var employeeBos = HumanResourcesService.GetEmployees();
 

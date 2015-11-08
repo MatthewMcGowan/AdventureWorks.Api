@@ -32,6 +32,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.BusinessObje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Data.EntityFramework.Test", "AdventureWorks.Data.EntityFramework.Test\AdventureWorks.Data.EntityFramework.Test.csproj", "{CD6C0EFC-93DE-4AE0-A97C-5558290F088D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Data", "AdventureWorks.Data\AdventureWorks.Data.csproj", "{233A6633-D68A-45E2-9FB5-6B1E24EAC5F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Extensions", "AdventureWorks.Extensions\AdventureWorks.Extensions.csproj", "{73C72F68-8695-485F-B0D7-BCF3B4F958F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +82,14 @@ Global
 		{CD6C0EFC-93DE-4AE0-A97C-5558290F088D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD6C0EFC-93DE-4AE0-A97C-5558290F088D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD6C0EFC-93DE-4AE0-A97C-5558290F088D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{233A6633-D68A-45E2-9FB5-6B1E24EAC5F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{233A6633-D68A-45E2-9FB5-6B1E24EAC5F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{233A6633-D68A-45E2-9FB5-6B1E24EAC5F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{233A6633-D68A-45E2-9FB5-6B1E24EAC5F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73C72F68-8695-485F-B0D7-BCF3B4F958F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73C72F68-8695-485F-B0D7-BCF3B4F958F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73C72F68-8695-485F-B0D7-BCF3B4F958F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73C72F68-8695-485F-B0D7-BCF3B4F958F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,5 +105,7 @@ Global
 		{6946274F-9318-4462-BF6E-AD874BC2695A} = {D9D742C9-1DEF-4559-A4F2-59E013B1D0E1}
 		{5173F1D3-C7D3-4283-88A3-49C87F9F43C2} = {D9D742C9-1DEF-4559-A4F2-59E013B1D0E1}
 		{CD6C0EFC-93DE-4AE0-A97C-5558290F088D} = {675F7126-9354-4B31-BF72-20E472783CED}
+		{233A6633-D68A-45E2-9FB5-6B1E24EAC5F2} = {D9D742C9-1DEF-4559-A4F2-59E013B1D0E1}
+		{73C72F68-8695-485F-B0D7-BCF3B4F958F3} = {D9D742C9-1DEF-4559-A4F2-59E013B1D0E1}
 	EndGlobalSection
 EndGlobal

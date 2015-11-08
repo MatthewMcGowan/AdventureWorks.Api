@@ -6,8 +6,8 @@
     <ProjectGuid>{1BA3E4E7-8F14-4231-8D2E-9938305468A5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AdventureWorks.Logic.Test</RootNamespace>
-    <AssemblyName>AdventureWorks.Logic.Test</AssemblyName>
+    <RootNamespace>AdventureWorks.Business.Test</RootNamespace>
+    <AssemblyName>AdventureWorks.Business.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -82,6 +82,10 @@
       <Project>{f144d203-008e-4f2a-8303-ea8aa98db64b}</Project>
       <Name>AdventureWorks.Data.EntityFramework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AdventureWorks.Data\AdventureWorks.Data.csproj">
+      <Project>{233a6633-d68a-45e2-9fb5-6b1e24eac5f2}</Project>
+      <Name>AdventureWorks.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AdventureWorks.Enumerations\AdventureWorks.Enumerations.csproj">
       <Project>{6946274f-9318-4462-bf6e-ad874bc2695a}</Project>
       <Name>AdventureWorks.Enumerations</Name>
@@ -89,6 +93,10 @@
     <ProjectReference Include="..\AdventureWorks.Business\AdventureWorks.Business.csproj">
       <Project>{53bf165b-2b1e-420f-828e-59dd8b2a2a58}</Project>
       <Name>AdventureWorks.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdventureWorks.Extensions\AdventureWorks.Extensions.csproj">
+      <Project>{73c72f68-8695-485f-b0d7-bcf3b4f958f3}</Project>
+      <Name>AdventureWorks.Extensions</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

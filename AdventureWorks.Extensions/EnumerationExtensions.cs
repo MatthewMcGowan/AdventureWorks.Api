@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventureWorks.Business.Extensions
+namespace AdventureWorks.Extensions
 {
     public static class EnumerationExtensions
     {

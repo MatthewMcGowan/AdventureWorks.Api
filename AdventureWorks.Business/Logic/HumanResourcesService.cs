@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace AdventureWorks.Business
 {
-    using Data.EntityFramework.Core;
     using Extensions;
     using Logic;
     using Interfaces;
-    using Data.EntityFramework.Interfaces;
+    using Data.Interfaces;
+    using AdventureWorks.Data;
     using Enumerations;
 
     public class HumanResourcesService : BaseService, IHumanResourcesService
@@ -31,8 +31,23 @@ namespace AdventureWorks.Business
             PhoneDA = phoneDA;
         }
 
-        public HumanResourcesService() : this(new EmployeeDA(), new PersonPhoneDA())
+        public HumanResourcesService()
         {
+            IEmployeeDA employeeDA;
+            IPersonPhoneDA personPhoneDA;
+
+            if (DataMethod == 0)
+            {
+                employeeDA = new Data.EntityFramework.Core.EmployeeDA();
+                personPhoneDA = new Data.EntityFramework.Core.PersonPhoneDA();
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+
+            EmployeeDA = employeeDA;
+            PhoneDA = personPhoneDA;
         }
 
         #endregion
@@ -41,47 +56,18 @@ namespace AdventureWorks.Business
 
         public List<BusinessObjects.Employee> GetEmployees()
         {
-            if(DataMethod == 0)
-            {
-                return EmployeeDA.GetAllEmployees().MapToBusinessLayer();
-            }
-            else if(DataMethod == 1)
-            {
-                throw new NotImplementedException();
-            }
-            else if(DataMethod == 2)
-            {
-                throw new NotImplementedException();
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            return EmployeeDA.GetAllEmployees();
         }
 
         public BusinessObjects.Employee GetEmployeeById(int id)
         {
-            if (DataMethod == 0)
-            {
-                return EmployeeDA.GetEmployeeByBusinessEntityId(id).MapToBusinessLayer();
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+                return EmployeeDA.GetEmployeeByBusinessEntityId(id);
         }
 
         public bool UpdateEmployee(BusinessObjects.Employee employee)
         {
-            if(DataMethod == 0)
-            {
-                EmployeeDA.UpdateEmployee(employee);
-                return true;
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            EmployeeDA.UpdateEmployee(employee);
+            return true;
         }
 
         public bool AddPhoneNumber(BusinessObjects.PersonPhone phone)
@@ -95,16 +81,8 @@ namespace AdventureWorks.Business
                 return false;
             }
 
-            // Add the phone number
-            if (DataMethod == 0)
-            {
-                PhoneDA.AddPhoneNumber(phone);
-                return true;
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            PhoneDA.AddPhoneNumber(phone);
+            return true;
         }
 
         public bool DeletePhoneNumber(BusinessObjects.PersonPhone phone)
@@ -119,15 +97,8 @@ namespace AdventureWorks.Business
             }
 
             // Delete the phone number
-            if (DataMethod == 0)
-            {
-                PhoneDA.DeletePhoneNumber(phone);
-                return true;
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            PhoneDA.DeletePhoneNumber(phone);
+            return true;
         }
 
         #endregion
