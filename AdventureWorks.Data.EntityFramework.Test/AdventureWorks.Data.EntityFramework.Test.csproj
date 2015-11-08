@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E3221CCB-565E-47C7-A509-DAA52BC2B524}</ProjectGuid>
+    <ProjectGuid>{CD6C0EFC-93DE-4AE0-A97C-5558290F088D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AdventureWorks.Api.Test</RootNamespace>
-    <AssemblyName>AdventureWorks.Api.Test</AssemblyName>
+    <RootNamespace>AdventureWorks.Data.EntityFramework.Test</RootNamespace>
+    <AssemblyName>AdventureWorks.Data.EntityFramework.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -58,16 +58,31 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Core\EmployeeDA\GetAllEmployeesTests.cs" />
+    <Compile Include="Core\EmployeeDA\GetEmployeeByBusinessEntityIdTests.cs" />
+    <Compile Include="Extensions\MappingExtensions\MapEmployeeOntoEntityTests.cs" />
+    <Compile Include="Extensions\MappingExtensions\MapPersonPhoneOntoEntityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AdventureWorks.Api\AdventureWorks.Api.csproj">
-      <Project>{80cc1bd5-2b0f-47e9-a4a1-20716ddad986}</Project>
-      <Name>AdventureWorks.Api</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Folder Include="Core\PersonPhoneDA\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdventureWorks.BusinessObjects\AdventureWorks.BusinessObjects.csproj">
+      <Project>{5173f1d3-c7d3-4283-88a3-49c87f9f43c2}</Project>
+      <Name>AdventureWorks.BusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdventureWorks.Data.EntityFramework\AdventureWorks.Data.EntityFramework.csproj">
+      <Project>{f144d203-008e-4f2a-8303-ea8aa98db64b}</Project>
+      <Name>AdventureWorks.Data.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdventureWorks.Enumerations\AdventureWorks.Enumerations.csproj">
+      <Project>{6946274F-9318-4462-BF6E-AD874BC2695A}</Project>
+      <Name>AdventureWorks.Enumerations</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

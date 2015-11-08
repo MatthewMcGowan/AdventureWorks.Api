@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace AdventureWorks.Logic.Test.HumanResourcesService
 {
-    class UpdateEmployeeTests
+    using NUnit.Framework;
+    using Moq;
+
+    [TestFixture]
+    public class UpdateEmployeeTests
     {
+        [SetUp]
+        public void SetUp()
+        {
+
+        }
     }
 }

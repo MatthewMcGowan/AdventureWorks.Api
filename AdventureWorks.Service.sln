@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Enumerations
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.BusinessObjects", "AdventureWorks.BusinessObjects\AdventureWorks.BusinessObjects.csproj", "{5173F1D3-C7D3-4283-88A3-49C87F9F43C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Data.EntityFramework.Test", "AdventureWorks.Data.EntityFramework.Test\AdventureWorks.Data.EntityFramework.Test.csproj", "{CD6C0EFC-93DE-4AE0-A97C-5558290F088D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{5173F1D3-C7D3-4283-88A3-49C87F9F43C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5173F1D3-C7D3-4283-88A3-49C87F9F43C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5173F1D3-C7D3-4283-88A3-49C87F9F43C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD6C0EFC-93DE-4AE0-A97C-5558290F088D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD6C0EFC-93DE-4AE0-A97C-5558290F088D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD6C0EFC-93DE-4AE0-A97C-5558290F088D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD6C0EFC-93DE-4AE0-A97C-5558290F088D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,5 +92,6 @@ Global
 		{E3221CCB-565E-47C7-A509-DAA52BC2B524} = {675F7126-9354-4B31-BF72-20E472783CED}
 		{6946274F-9318-4462-BF6E-AD874BC2695A} = {D9D742C9-1DEF-4559-A4F2-59E013B1D0E1}
 		{5173F1D3-C7D3-4283-88A3-49C87F9F43C2} = {D9D742C9-1DEF-4559-A4F2-59E013B1D0E1}
+		{CD6C0EFC-93DE-4AE0-A97C-5558290F088D} = {675F7126-9354-4B31-BF72-20E472783CED}
 	EndGlobalSection
 EndGlobal
