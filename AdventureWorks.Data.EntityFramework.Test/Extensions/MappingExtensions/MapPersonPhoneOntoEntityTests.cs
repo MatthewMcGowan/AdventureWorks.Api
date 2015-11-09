@@ -9,6 +9,7 @@ namespace AdventureWorks.Data.EntityFramework.Test.Extensions.MappingExtensions
     using NUnit.Framework;
     using Moq;
     using Data.EntityFramework.Extensions;
+    using TestData;
 
     [TestFixture]
     public class MapPersonPhoneOntoEntityTests
@@ -34,9 +35,9 @@ namespace AdventureWorks.Data.EntityFramework.Test.Extensions.MappingExtensions
             phoneBo.MapOntoEntity(phoneEntity);
 
             // Assert
-            Assert.True(phoneEntity.BusinessEntityID == 1);
-            Assert.True(phoneEntity.PhoneNumber == "697-555-0142");
-            Assert.True(phoneEntity.PhoneNumberTypeID == (int)Enumerations.PhoneNumberTypeEnum.Cell);
+            Assert.True(phoneEntity.BusinessEntityID == TestData.CeoBusinessEntityId);
+            Assert.True(phoneEntity.PhoneNumber == TestData.CeoPhoneNumber);
+            Assert.True(phoneEntity.PhoneNumberTypeID == (int)TestData.CeoPhoneNumberType);
         }
 
         [Test]
@@ -62,9 +63,9 @@ namespace AdventureWorks.Data.EntityFramework.Test.Extensions.MappingExtensions
 
         private void AddValidDataToPhoneBo()
         {
-            phoneBo.BusinessEntityId = 1;
-            phoneBo.PhoneNumber = "697-555-0142";
-            phoneBo.PhoneNumberType = Enumerations.PhoneNumberTypeEnum.Cell;
+            phoneBo.BusinessEntityId = TestData.CeoBusinessEntityId;
+            phoneBo.PhoneNumber = TestData.CeoPhoneNumber;
+            phoneBo.PhoneNumberType = TestData.CeoPhoneNumberType;
         }
     }
 }

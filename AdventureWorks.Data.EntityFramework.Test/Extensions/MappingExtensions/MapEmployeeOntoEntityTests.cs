@@ -8,6 +8,7 @@ namespace AdventureWorks.Data.EntityFramework.Test.Extensions.MappingExtensions
 {
     using NUnit.Framework;
     using EntityFramework.Extensions;
+    using TestData;
 
     [TestFixture]
     public class MapEmployeeOntoEntityTests
@@ -33,10 +34,10 @@ namespace AdventureWorks.Data.EntityFramework.Test.Extensions.MappingExtensions
             employeeBo.MapOntoEntity(employeeEntity);
 
             // Assert
-            Assert.AreEqual(employeeEntity.Person.FirstName, "Ken");
-            Assert.AreEqual(employeeEntity.Person.MiddleName, "J");
-            Assert.AreEqual(employeeEntity.Person.LastName, "Sánchez");
-            Assert.AreEqual(employeeEntity.JobTitle, "Chief Executive Officer");
+            Assert.AreEqual(employeeEntity.Person.FirstName, TestData.CeoFirstName);
+            Assert.AreEqual(employeeEntity.Person.MiddleName, TestData.CeoMiddleName);
+            Assert.AreEqual(employeeEntity.Person.LastName, TestData.CeoLastName);
+            Assert.AreEqual(employeeEntity.JobTitle, TestData.CeoJobTitle);
         }
 
         [Test]
@@ -75,10 +76,10 @@ namespace AdventureWorks.Data.EntityFramework.Test.Extensions.MappingExtensions
 
         private void AddValidDataToEmployeeBo()
         {
-            employeeBo.FirstName = "Ken";
-            employeeBo.MiddleName = "J";
-            employeeBo.LastName = "Sánchez";
-            employeeBo.JobTitle = "Chief Executive Officer";
+            employeeBo.FirstName = TestData.CeoFirstName;
+            employeeBo.MiddleName = TestData.CeoMiddleName;
+            employeeBo.LastName = TestData.CeoLastName;
+            employeeBo.JobTitle = TestData.CeoJobTitle;
         }
     }
 }

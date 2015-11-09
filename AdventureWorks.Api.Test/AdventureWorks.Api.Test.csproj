@@ -82,6 +82,10 @@
       <Project>{73c72f68-8695-485f-b0d7-bcf3b4f958f3}</Project>
       <Name>AdventureWorks.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AdventureWorks.TestData\AdventureWorks.TestData.csproj">
+      <Project>{e86f62ee-af6e-4a76-b18a-bb4632bb3692}</Project>
+      <Name>AdventureWorks.TestData</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
