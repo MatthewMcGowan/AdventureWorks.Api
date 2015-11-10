@@ -8,6 +8,8 @@ namespace AdventureWorks.TestData
 {
     public static class TestData
     {
+        #region Employee Database Data
+
         public const int CeoBusinessEntityId = 1;
         public const string CeoFirstName = "Ken";
         public const string CeoMiddleName = "J";
@@ -15,5 +17,14 @@ namespace AdventureWorks.TestData
         public const string CeoJobTitle = "Chief Executive Officer";
         public const string CeoPhoneNumber = "697-555-0142";
         public const Enumerations.PhoneNumberTypeEnum CeoPhoneNumberType = Enumerations.PhoneNumberTypeEnum.Cell;
+
+        #endregion
+
+        #region Web.config Data
+
+        public const string DataAccessMethodKey = "DataAccessMethod";
+        public const string DataAccessMethodEntityFramework = "EntityFramework";
+
+        #endregion
     }
 }

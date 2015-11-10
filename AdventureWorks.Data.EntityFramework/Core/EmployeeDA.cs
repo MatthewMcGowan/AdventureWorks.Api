@@ -13,6 +13,7 @@ namespace AdventureWorks.Data.EntityFramework.Core
     using System.Linq;
     using System.Data.Entity;
     using Extensions;
+    using System.Threading.Tasks;
 
     public class EmployeeDA : BaseDA, IEmployeeDA
     {
@@ -36,6 +37,12 @@ namespace AdventureWorks.Data.EntityFramework.Core
         {
             // Return employee with specified BusinessEntityId
             return Db.Employees.Find(id).MapToBusinessLayer();
+        }
+
+        public Task<BusinessObjects.Employee> GetEmployeeByBusinessEntityIdAsync(int id)
+        {
+            // Return employee with specified BusinessEntityId
+            return Task.Run (() => Db.Employees.Find(id).MapToBusinessLayer());
         }
 
         public void UpdateEmployee(BusinessObjects.Employee employee)

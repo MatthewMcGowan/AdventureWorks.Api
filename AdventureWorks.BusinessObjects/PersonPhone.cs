@@ -19,5 +19,16 @@ namespace AdventureWorks.BusinessObjects
         public PhoneNumberTypeEnum PhoneNumberType { get; set; }
 
         #endregion
+
+        #region Public Methods
+
+        public bool Equals(PersonPhone obj)
+        {
+            return BusinessEntityId == obj.BusinessEntityId
+                && PhoneNumber == obj.PhoneNumber
+                && PhoneNumberType == obj.PhoneNumberType;
+        }
+
+        #endregion
     }
 }

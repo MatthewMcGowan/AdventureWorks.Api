@@ -12,6 +12,8 @@ namespace AdventureWorks.Data.Interfaces
 
         BusinessObjects.Employee GetEmployeeByBusinessEntityId(int id);
 
+        Task<BusinessObjects.Employee> GetEmployeeByBusinessEntityIdAsync(int id);
+
         void UpdateEmployee(BusinessObjects.Employee employee);
     }
 }

@@ -44,6 +44,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -59,6 +60,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="HumanResourcesService\AddPhoneNumberTests.cs" />
+    <Compile Include="HumanResourcesService\BaseHumanResourcesTests.cs" />
     <Compile Include="HumanResourcesService\DeletePhoneNumberTests.cs" />
     <Compile Include="HumanResourcesService\GetEmployeeByIdTests.cs" />
     <Compile Include="HumanResourcesService\GetEmployeesTests.cs" />

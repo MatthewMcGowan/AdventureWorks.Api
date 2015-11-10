@@ -55,6 +55,12 @@ namespace AdventureWorks.Api.Controllers
         {
             var employeeBo = HumanResourcesService.GetEmployeeById(id);
             var employee = Mapper.Map<EmployeeModel>(employeeBo);
+
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
             return Ok(employee);
         }
 

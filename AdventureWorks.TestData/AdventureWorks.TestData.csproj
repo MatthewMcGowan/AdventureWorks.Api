@@ -44,6 +44,10 @@
     <Compile Include="TestData.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AdventureWorks.BusinessObjects\AdventureWorks.BusinessObjects.csproj">
+      <Project>{5173f1d3-c7d3-4283-88a3-49c87f9f43c2}</Project>
+      <Name>AdventureWorks.BusinessObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AdventureWorks.Enumerations\AdventureWorks.Enumerations.csproj">
       <Project>{6946274f-9318-4462-bf6e-ad874bc2695a}</Project>
       <Name>AdventureWorks.Enumerations</Name>

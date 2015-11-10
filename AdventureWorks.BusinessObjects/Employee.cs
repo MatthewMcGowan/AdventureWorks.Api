@@ -18,7 +18,25 @@ namespace AdventureWorks.BusinessObjects
 
         public string LastName { get; set; }
 
-        public string JobTitle { get; set; }        
+        public string JobTitle { get; set; }
+
+        #endregion
+
+        #region Public Properties
+
+        public bool Equals(Employee obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            return BusinessEntityId == obj.BusinessEntityId
+                && FirstName == obj.FirstName
+                && MiddleName == obj.MiddleName
+                && LastName == obj.LastName
+                && JobTitle == obj.JobTitle;
+        }
 
         #endregion
     }

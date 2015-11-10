@@ -21,6 +21,12 @@ namespace AdventureWorks.Data.EntityFramework.Core
 
         #region Public Methods
 
+        public Task<List<BusinessObjects.PersonPhone>> GetPhoneNumbersByBusinessEntityIdAsync(int id)
+        {
+            return Task.Run( 
+                () => Db.PersonPhones.Where(n => n.BusinessEntityID == id).MapToBusinessLayer());
+        }
+
         public void AddPhoneNumber(BusinessObjects.PersonPhone phoneNumber)
         {
             // Create new entity to add

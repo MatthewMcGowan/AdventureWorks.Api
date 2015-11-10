@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventureWorks.Business.Logic
 {
+    using Interfaces;
     using AdventureWorks.Enumerations;
     using AdventureWorks.Extensions;
     public abstract class BaseService
@@ -18,17 +19,23 @@ namespace AdventureWorks.Business.Logic
 
         #region Constructors
 
-        protected BaseService()
+        protected BaseService(IAppSettingReader reader)
         {
+            // Get value from app settings
+            string dataAccessMethod = reader.GetAppSetting("DataAccessMethod");
+
+            // Convert to enum
             try
             {
-                DataAccessMethod = System.Configuration.ConfigurationManager.AppSettings["DataAccessMethod"].ToEnum<DataAccessMethodEnum>();
+                DataAccessMethod = dataAccessMethod.ToEnum<DataAccessMethodEnum>();
             }
             catch(Exception e)
             {
                 throw new Exception("Data access method configured incorrectly in config.", e);
             }
         }
+
+        protected BaseService() : this(new AppSettingReader()) { }
 
         #endregion
 

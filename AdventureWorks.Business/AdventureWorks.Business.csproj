@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IAppSettingReader.cs" />
     <Compile Include="Interfaces\IHumanResourcesService.cs" />
+    <Compile Include="Logic\AppSettingReader.cs" />
     <Compile Include="Logic\BaseService.cs" />
     <Compile Include="Logic\HumanResourcesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventureWorks.Logic.Test.HumanResourcesService
+namespace AdventureWorks.Business.Test.HumanResourcesService
 {
     using NUnit.Framework;
     using Moq;

@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventureWorks.Logic.Test.HumanResourcesService
+namespace AdventureWorks.Business.Test.HumanResourcesService
 {
-    class DeletePhoneNumberTests
+    using NUnit.Framework;
+
+    [TestFixture]
+    public class DeletePhoneNumberTests
     {
+
     }
 }
