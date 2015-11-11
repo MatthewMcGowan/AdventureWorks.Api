@@ -60,6 +60,7 @@ namespace AdventureWorks.Business.Test.HumanResourcesService
             var result = hr.GetEmployeeById(TestData.CeoBusinessEntityId);
 
             // Assert
+            // TODO: Verify the DA method has been called
             Assert.IsTrue(result.Equals(ceo));
         }
 
@@ -74,7 +75,8 @@ namespace AdventureWorks.Business.Test.HumanResourcesService
             var result = hr.GetEmployeeById(TestData.CeoBusinessEntityId);
 
             // Assert
-            Assert.IsTrue(result == null);
+            // TODO: Verify the DA method have been called
+            Assert.IsNull(result);
         }
     }
 }

@@ -42,9 +42,9 @@
         public void AddPhoneNumber_EmployeeExistsAndNumberNotDuplicate_PhoneNumberAddedAndTrueReturned()
         {
             // Arrange
-            mockEmployeeDa.Setup(x => x.GetEmployeeByBusinessEntityId(ceo.BusinessEntityId)).Returns(ceo);
+            mockEmployeeDa.Setup(x => x.GetEmployeeByBusinessEntityIdAsync(ceo.BusinessEntityId)).ReturnsAsync(ceo);
             mockPhoneDa.Setup(x => x.GetPhoneNumbersByBusinessEntityIdAsync(existingCeoNumber.BusinessEntityId))
-                .Returns(Task.FromResult(new List<BusinessObjects.PersonPhone> { existingCeoNumber }));
+                .ReturnsAsync(new List<BusinessObjects.PersonPhone> { existingCeoNumber });
             mockPhoneDa.Setup(x => x.AddPhoneNumber(newCeoNumber));
             hr = new HumanResourcesService(mockEmployeeDa.Object, mockPhoneDa.Object, mockAppReader.Object);
 
@@ -52,7 +52,7 @@
             bool returns = hr.AddPhoneNumber(newCeoNumber);
 
             // Assert
-            //mockPhoneDa.VerifyAll();
+            // TODO: Verify the DA methods have been called
             Assert.IsTrue(returns);
         }
 
@@ -60,10 +60,10 @@
         public void AddPhoneNumber_EmployeeDoesNotExist_FalseReturned()
         {
             // Arrange
-            mockEmployeeDa.Setup(x => x.GetEmployeeByBusinessEntityId(nonEmployeeNumber.BusinessEntityId))
-                .Returns((BusinessObjects.Employee)null);
+            mockEmployeeDa.Setup(x => x.GetEmployeeByBusinessEntityIdAsync(nonEmployeeNumber.BusinessEntityId))
+                .ReturnsAsync((BusinessObjects.Employee)null);
             mockPhoneDa.Setup(x => x.GetPhoneNumbersByBusinessEntityIdAsync(nonEmployeeNumber.BusinessEntityId))
-                .Returns(Task.FromResult(new List<BusinessObjects.PersonPhone> { existingCeoNumber }));
+                .ReturnsAsync(new List<BusinessObjects.PersonPhone> { existingCeoNumber });
             mockPhoneDa.Setup(x => x.AddPhoneNumber(nonEmployeeNumber)).Throws(new System.Exception());
             hr = new HumanResourcesService(mockEmployeeDa.Object, mockPhoneDa.Object, mockAppReader.Object);
 
@@ -71,6 +71,7 @@
             bool returns = hr.AddPhoneNumber(nonEmployeeNumber);
 
             // Assert
+            // TODO: Verify the DA methods have been called
             Assert.IsFalse(returns);
         }
 
@@ -79,9 +80,9 @@
         {
             // Arrange
             mockEmployeeDa.Setup(x => x.GetEmployeeByBusinessEntityIdAsync(existingCeoNumber.BusinessEntityId))
-                .Returns(Task.FromResult(ceo));
+                .ReturnsAsync(ceo);
             mockPhoneDa.Setup(x => x.GetPhoneNumbersByBusinessEntityIdAsync(existingCeoNumber.BusinessEntityId))
-                .Returns(Task.FromResult(new List<BusinessObjects.PersonPhone> { existingCeoNumber }));
+                .ReturnsAsync(new List<BusinessObjects.PersonPhone> { existingCeoNumber });
             mockPhoneDa.Setup(x => x.AddPhoneNumber(existingCeoNumber)).Throws(new System.Exception());
             hr = new HumanResourcesService(mockEmployeeDa.Object, mockPhoneDa.Object, mockAppReader.Object);
 
@@ -89,6 +90,7 @@
             bool returns = hr.AddPhoneNumber(existingCeoNumber);
 
             // Assert
+            // TODO: Verify the DA methods have been called
             Assert.IsFalse(returns);
         }
     }
