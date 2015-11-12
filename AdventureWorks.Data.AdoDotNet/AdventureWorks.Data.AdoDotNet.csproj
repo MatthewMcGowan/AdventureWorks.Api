@@ -40,12 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\BaseDA.cs" />
     <Compile Include="Core\EmployeeDA.cs" />
     <Compile Include="dsAdventureWorks2012.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsAdventureWorks2012.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\MappingExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -7,17 +7,46 @@ using System.Threading.Tasks;
 namespace AdventureWorks.Data.AdoDotNet.Core
 {
     using AdventureWorks.Data.Interfaces;
+    using dsAdventureWorks2012TableAdapters;
+    using Extensions;
 
-    public class EmployeeDA : IEmployeeDA
+    public class EmployeeDA : BaseDA, IEmployeeDA
     {
+        #region Private Fields
+
+        
+
+        #endregion
+
+        #region Constructors
+
+        public EmployeeDA()
+        {
+
+        }
+
+        #endregion
+
+        #region Public Methods
+
         public List<BusinessObjects.Employee> GetAllEmployees()
         {
-            throw new NotImplementedException();
+            //employeeAdapter = new EmployeePersonTableAdapter();
+            //var employees = employeeAdapter.GetData();
+
+            //foreach (dsAdventureWorks2012.EmployeePersonRow e in employees.Rows)
+            //{
+            //    var employee = new BusinessObjects.Employee();
+            //    employee.
+            //}
         }
 
         public BusinessObjects.Employee GetEmployeeByBusinessEntityId(int id)
         {
-            throw new NotImplementedException();
+            employeeAdapter = new EmployeePersonTableAdapter();
+            dsAdventureWorks2012.EmployeePersonRow employee = employeeAdapter.GetEmployeePersonById(id).FirstOrDefault();
+            return employee.MapToBusinessLayer();
+
         }
 
         public Task<BusinessObjects.Employee> GetEmployeeByBusinessEntityIdAsync(int id)
@@ -29,5 +58,7 @@ namespace AdventureWorks.Data.AdoDotNet.Core
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }
