@@ -31,14 +31,9 @@ namespace AdventureWorks.Data.AdoDotNet.Core
 
         public List<BusinessObjects.Employee> GetAllEmployees()
         {
-            //employeeAdapter = new EmployeePersonTableAdapter();
-            //var employees = employeeAdapter.GetData();
-
-            //foreach (dsAdventureWorks2012.EmployeePersonRow e in employees.Rows)
-            //{
-            //    var employee = new BusinessObjects.Employee();
-            //    employee.
-            //}
+            employeeAdapter = new EmployeePersonTableAdapter();
+            dsAdventureWorks2012.EmployeePersonDataTable employees = employeeAdapter.GetData();
+            return employees.MapToBusinessLayer();
         }
 
         public BusinessObjects.Employee GetEmployeeByBusinessEntityId(int id)
@@ -46,7 +41,6 @@ namespace AdventureWorks.Data.AdoDotNet.Core
             employeeAdapter = new EmployeePersonTableAdapter();
             dsAdventureWorks2012.EmployeePersonRow employee = employeeAdapter.GetEmployeePersonById(id).FirstOrDefault();
             return employee.MapToBusinessLayer();
-
         }
 
         public Task<BusinessObjects.Employee> GetEmployeeByBusinessEntityIdAsync(int id)

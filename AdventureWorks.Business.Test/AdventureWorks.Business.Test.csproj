@@ -72,7 +72,7 @@
       <Project>{5173f1d3-c7d3-4283-88a3-49c87f9f43c2}</Project>
       <Name>AdventureWorks.BusinessObjects</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AdventureWorks.Data.AdoDotNet\AdventureWorks.Data.AdoDotNet.csproj">
+    <ProjectReference Include="..\AdventureWorks.Data.AdoDotNet\AdventureWorks.Data.TableAdapter.csproj">
       <Project>{397b0f97-a72e-4b6d-96fc-591dfca8e7c9}</Project>
       <Name>AdventureWorks.Data.AdoDotNet</Name>
     </ProjectReference>
