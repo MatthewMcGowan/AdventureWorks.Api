@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventureWorks.Data.AdoDotNet.Core
+namespace AdventureWorks.Data.TableAdapter.Core
 {
     using AdventureWorks.Data.Interfaces;
     using dsAdventureWorks2012TableAdapters;

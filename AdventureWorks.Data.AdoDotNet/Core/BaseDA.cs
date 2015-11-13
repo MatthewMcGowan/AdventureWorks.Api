@@ -1,11 +1,11 @@
-﻿using AdventureWorks.Data.AdoDotNet.dsAdventureWorks2012TableAdapters;
+﻿using AdventureWorks.Data.TableAdapter.dsAdventureWorks2012TableAdapters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventureWorks.Data.AdoDotNet.Core
+namespace AdventureWorks.Data.TableAdapter.Core
 {
     using dsAdventureWorks2012TableAdapters;
 

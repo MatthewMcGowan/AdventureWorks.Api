@@ -7,8 +7,8 @@
     <ProjectGuid>{397B0F97-A72E-4B6D-96FC-591DFCA8E7C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AdventureWorks.Data.AdoDotNet</RootNamespace>
-    <AssemblyName>AdventureWorks.Data.AdoDotNet</AssemblyName>
+    <RootNamespace>AdventureWorks.Data.TableAdapter</RootNamespace>
+    <AssemblyName>AdventureWorks.Data.TableAdapter</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

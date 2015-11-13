@@ -74,7 +74,7 @@
     </ProjectReference>
     <ProjectReference Include="..\AdventureWorks.Data.AdoDotNet\AdventureWorks.Data.TableAdapter.csproj">
       <Project>{397b0f97-a72e-4b6d-96fc-591dfca8e7c9}</Project>
-      <Name>AdventureWorks.Data.AdoDotNet</Name>
+      <Name>AdventureWorks.Data.TableAdapter</Name>
     </ProjectReference>
     <ProjectReference Include="..\AdventureWorks.Data.Dapper\AdventureWorks.Data.Dapper.csproj">
       <Project>{230f1580-499e-4acb-ab64-356c07159570}</Project>

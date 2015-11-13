@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventureWorks.Data.AdoDotNet.Extensions
+namespace AdventureWorks.Data.TableAdapter.Extensions
 {
     using BusinessObjects;
 

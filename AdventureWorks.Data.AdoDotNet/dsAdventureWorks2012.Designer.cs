@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace AdventureWorks.Data.AdoDotNet {
+namespace AdventureWorks.Data.TableAdapter {
     
     
     /// <summary>
@@ -3237,7 +3237,7 @@ namespace AdventureWorks.Data.AdoDotNet {
         }
     }
 }
-namespace AdventureWorks.Data.AdoDotNet.dsAdventureWorks2012TableAdapters {
+namespace AdventureWorks.Data.TableAdapter.dsAdventureWorks2012TableAdapters {
     
     
     /// <summary>
@@ -3399,7 +3399,7 @@ SELECT BusinessEntityID, rowguid, ModifiedDate FROM Person.BusinessEntity WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::AdventureWorks.Data.AdoDotNet.Properties.Settings.Default.AdventureWorks2012ConnectionString;
+            this._connection.ConnectionString = global::AdventureWorks.Data.TableAdapter.Properties.Settings.Default.AdventureWorks2012ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3791,7 +3791,7 @@ SELECT BusinessEntityID, NationalIDNumber, LoginID, OrganizationNode, Organizati
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::AdventureWorks.Data.AdoDotNet.Properties.Settings.Default.AdventureWorks2012ConnectionString;
+            this._connection.ConnectionString = global::AdventureWorks.Data.TableAdapter.Properties.Settings.Default.AdventureWorks2012ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4373,7 +4373,7 @@ SELECT BusinessEntityID, PhoneNumber, PhoneNumberTypeID, ModifiedDate FROM Perso
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::AdventureWorks.Data.AdoDotNet.Properties.Settings.Default.AdventureWorks2012ConnectionString;
+            this._connection.ConnectionString = global::AdventureWorks.Data.TableAdapter.Properties.Settings.Default.AdventureWorks2012ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4757,7 +4757,7 @@ SELECT BusinessEntityID, PersonType, NameStyle, Title, FirstName, MiddleName, La
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::AdventureWorks.Data.AdoDotNet.Properties.Settings.Default.AdventureWorks2012ConnectionString;
+            this._connection.ConnectionString = global::AdventureWorks.Data.TableAdapter.Properties.Settings.Default.AdventureWorks2012ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5277,7 +5277,7 @@ SELECT BusinessEntityID, PersonType, NameStyle, Title, FirstName, MiddleName, La
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::AdventureWorks.Data.AdoDotNet.Properties.Settings.Default.AdventureWorks2012ConnectionString;
+            this._connection.ConnectionString = global::AdventureWorks.Data.TableAdapter.Properties.Settings.Default.AdventureWorks2012ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
