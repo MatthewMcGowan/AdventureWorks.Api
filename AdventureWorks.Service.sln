@@ -20,7 +20,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Data.EntityF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Data.Dapper", "AdventureWorks.Data.Dapper\AdventureWorks.Data.Dapper.csproj", "{230F1580-499E-4ACB-AB64-356C07159570}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Data.TableAdapter", "AdventureWorks.Data.AdoDotNet\AdventureWorks.Data.TableAdapter.csproj", "{397B0F97-A72E-4B6D-96FC-591DFCA8E7C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Data.TableAdapter", "AdventureWorks.Data.TableAdapter\AdventureWorks.Data.TableAdapter.csproj", "{397B0F97-A72E-4B6D-96FC-591DFCA8E7C9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Api", "AdventureWorks.Api\AdventureWorks.Api.csproj", "{80CC1BD5-2B0F-47E9-A4A1-20716DDAD986}"
 EndProject
