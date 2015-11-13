@@ -24,12 +24,15 @@
         [SetUp]
         public void SetUp()
         {
+            // New instances of the mocks
             mockEmployeeDa = new Mock<IEmployeeDA>();
             mockPhoneDa = new Mock<IPersonPhoneDA>();
             mockAppReader = new Mock<IAppSettingReader>();
 
+            // Mock the app reader/web.config for each method. Determines which DataAccess method will be used.
             mockAppReader.Setup(x => x.GetAppSetting(TestData.DataAccessMethodKey)).Returns(TestData.DataAccessMethodEntityFramework);
 
+            // Create test data
             ceo = GetCeoEmployeeBo();
             existingCeoNumber = GetCeoPhoneBo();
             newCeoNumber = GetCeoPhoneBo();

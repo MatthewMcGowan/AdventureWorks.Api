@@ -59,8 +59,12 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Core\EmployeeDA\GetAllEmployeesTests.cs" />
+    <Compile Include="Core\EmployeeDA\GetEmployeeByBusinessEntityIdAsyncTests.cs" />
     <Compile Include="Core\EmployeeDA\GetEmployeeByBusinessEntityIdTests.cs" />
     <Compile Include="Core\EmployeeDA\UpdateEmployeeTests.cs" />
+    <Compile Include="Core\PersonPhoneDA\AddPhoneNumberTests.cs" />
+    <Compile Include="Core\PersonPhoneDA\DeletePhoneNumberTests.cs" />
+    <Compile Include="Core\PersonPhoneDA\GetPhoneNumbersByBusinessEntityIdAsyncTests.cs" />
     <Compile Include="Extensions\MappingExtensions\MapEmployeeOntoEntityTests.cs" />
     <Compile Include="Extensions\MappingExtensions\MapPersonPhoneOntoEntityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,9 +72,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\PersonPhoneDA\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\AdventureWorks.BusinessObjects\AdventureWorks.BusinessObjects.csproj">
       <Project>{5173f1d3-c7d3-4283-88a3-49c87f9f43c2}</Project>
