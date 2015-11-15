@@ -46,7 +46,7 @@ namespace AdventureWorks.Api.Controllers
                 return NotFound();
             }
 
-            var employees = Mapper.Map<IEnumerable<EmployeeModel>>(employeeBos);
+            var employees = Mapper.Map<List<EmployeeModel>>(employeeBos);
             return Ok(employees);
         }
 

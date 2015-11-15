@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
       <Private>True</Private>
@@ -44,6 +48,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -58,7 +63,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="EmployeeController\BaseEmployeeTests.cs" />
     <Compile Include="EmployeeController\GetEmployeesTests.cs" />
+    <Compile Include="EmployeeController\GetEmployeeTests.cs" />
+    <Compile Include="EmployeeController\PostEmployeeTests.cs" />
+    <Compile Include="EmployeePhoneController\BaseEmployeePhoneTests.cs" />
+    <Compile Include="EmployeePhoneController\DeleteEmployeePhoneNumberTests.cs" />
+    <Compile Include="EmployeePhoneController\GetEmployeePhoneNumberTests.cs" />
+    <Compile Include="EmployeePhoneController\PutEmployeePhoneNumberTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +102,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

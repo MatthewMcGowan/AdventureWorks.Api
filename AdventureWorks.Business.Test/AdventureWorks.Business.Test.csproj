@@ -64,6 +64,7 @@
     <Compile Include="HumanResourcesService\DeletePhoneNumberTests.cs" />
     <Compile Include="HumanResourcesService\GetEmployeeByIdTests.cs" />
     <Compile Include="HumanResourcesService\GetEmployeesTests.cs" />
+    <Compile Include="HumanResourcesService\GetPhoneNumbersByEmployeeIdTests.cs" />
     <Compile Include="HumanResourcesService\UpdateEmployeeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

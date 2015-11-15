@@ -11,7 +11,6 @@ namespace AdventureWorks.Business.Test.HumanResourcesService
     using Moq;
     using AdventureWorks.Business;
     using Data.Interfaces;
-    using TestData;
     using Business.Interfaces;
 
     public abstract class BaseHumanResourcesTests

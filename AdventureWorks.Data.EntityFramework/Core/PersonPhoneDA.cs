@@ -21,9 +21,9 @@ namespace AdventureWorks.Data.EntityFramework.Core
 
         #region Public Methods
 
-        public List<BusinessObjects.PersonPhone> GetPersonPhonesByBusinessEntityId(int id)
+        public List<BusinessObjects.PersonPhone> GetEmployeePersonPhonesByBusinessEntityId(int id)
         {
-            return Db.PersonPhones.Where(p => p.BusinessEntityID == id).MapToBusinessLayer();
+            return Db.Employees.Find(id).Person.PersonPhones.MapToBusinessLayer();
         }
 
         public Task<BusinessObjects.PersonPhone> GetPhoneNumberAsync(int businessEntityId, string phoneNumber, int phoneNumberType)

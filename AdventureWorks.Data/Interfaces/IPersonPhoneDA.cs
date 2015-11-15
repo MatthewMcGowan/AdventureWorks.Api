@@ -8,7 +8,7 @@ namespace AdventureWorks.Data.Interfaces
 {
     public interface IPersonPhoneDA
     {
-        List<BusinessObjects.PersonPhone> GetPersonPhonesByBusinessEntityId(int id);
+        List<BusinessObjects.PersonPhone> GetEmployeePersonPhonesByBusinessEntityId(int id);
 
         Task<BusinessObjects.PersonPhone> GetPhoneNumberAsync(int businessEntityId, string phoneNumber, int phoneNumberType);
 

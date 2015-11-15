@@ -54,6 +54,8 @@ namespace AdventureWorks.Business
 
         #region Public Methods
 
+        #region Employee Methods
+
         public List<BusinessObjects.Employee> GetEmployees()
         {
             return EmployeeDA.GetAllEmployees();
@@ -80,8 +82,12 @@ namespace AdventureWorks.Business
 
         public List<BusinessObjects.PersonPhone> GetPhoneNumbersByEmployeeId(int id)
         {
-            return PhoneDA.GetPersonPhonesByBusinessEntityId(id);
+            return PhoneDA.GetEmployeePersonPhonesByBusinessEntityId(id);
         }
+
+        #endregion
+
+        #region General Phone Methods
 
         public bool AddPhoneNumber(BusinessObjects.PersonPhone phone)
         {
@@ -108,6 +114,8 @@ namespace AdventureWorks.Business
             PhoneDA.DeletePhoneNumber(phone);
             return true;
         }
+
+        #endregion
 
         #endregion
 

@@ -20,5 +20,18 @@ namespace AdventureWorks.Api.Models
         public string JobTitle { get; set; }
 
         #endregion
+
+        #region Public methods
+
+        public bool Equals(EmployeeModel obj)
+        {
+            return (this.BusinessEntityId == obj.BusinessEntityId
+                && this.FirstName == obj.FirstName
+                && this.MiddleName == obj.MiddleName
+                && this.LastName == obj.LastName
+                && this.JobTitle == obj.JobTitle);
+        }
+
+        #endregion
     }
 }
