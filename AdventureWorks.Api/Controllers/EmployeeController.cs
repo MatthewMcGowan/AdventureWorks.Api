@@ -41,7 +41,7 @@ namespace AdventureWorks.Api.Controllers
         {
             var employeeBos = HumanResourcesService.GetEmployees();
 
-            if (employeeBos.Any())
+            if (!employeeBos.Any())
             {
                 return NotFound();
             }
@@ -65,43 +65,13 @@ namespace AdventureWorks.Api.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult PostEmployee(EmployeeModel model)
+        public IHttpActionResult PostEmployee([FromBody]EmployeeModel model)
         {
             var employee = Mapper.Map<BusinessObjects.Employee>(model);
 
             bool updated = HumanResourcesService.UpdateEmployee(employee);
 
             if (!updated)
-            {
-                return NotFound();
-            }
-
-            return Ok();
-        }
-
-        [HttpPut]
-        public IHttpActionResult PutEmployeePhoneNumber(EmployeePhoneModel model)
-        {
-            var phoneNumber = Mapper.Map<BusinessObjects.PersonPhone>(model);
-
-            bool added = HumanResourcesService.AddPhoneNumber(phoneNumber);
-
-            if (!added)
-            {
-                return NotFound();
-            }
-
-            return Ok();
-        }
-
-        [HttpDelete]
-        public IHttpActionResult DeleteEmployeePhoneNumber(EmployeePhoneModel model)
-        {
-            var phoneNumber = Mapper.Map<BusinessObjects.PersonPhone>(model);
-
-            bool deleted = HumanResourcesService.DeletePhoneNumber(phoneNumber);
-
-            if (!deleted)
             {
                 return NotFound();
             }

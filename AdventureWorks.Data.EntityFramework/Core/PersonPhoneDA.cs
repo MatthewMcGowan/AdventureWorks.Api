@@ -21,10 +21,14 @@ namespace AdventureWorks.Data.EntityFramework.Core
 
         #region Public Methods
 
-        public Task<List<BusinessObjects.PersonPhone>> GetPhoneNumbersByBusinessEntityIdAsync(int id)
+        public List<BusinessObjects.PersonPhone> GetPersonPhonesByBusinessEntityId(int id)
         {
-            return Task.Run( 
-                () => Db.PersonPhones.Where(n => n.BusinessEntityID == id).MapToBusinessLayer());
+            return Db.PersonPhones.Where(p => p.BusinessEntityID == id).MapToBusinessLayer();
+        }
+
+        public Task<BusinessObjects.PersonPhone> GetPhoneNumberAsync(int businessEntityId, string phoneNumber, int phoneNumberType)
+        {
+            return Task.Run(() => Db.PersonPhones.Find(businessEntityId, phoneNumber, phoneNumberType).MapToBusinessLayer());
         }
 
         public void AddPhoneNumber(BusinessObjects.PersonPhone phoneNumber)

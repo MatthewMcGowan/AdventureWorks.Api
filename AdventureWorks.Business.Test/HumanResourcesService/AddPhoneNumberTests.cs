@@ -12,50 +12,47 @@
     [TestFixture]
     public class AddPhoneNumberTests : BaseHumanResourcesTests
     {
-        private HumanResourcesService hr;
-        private Mock<IEmployeeDA> mockEmployeeDa;
-        private Mock<IPersonPhoneDA> mockPhoneDa;
-        private Mock<IAppSettingReader> mockAppReader;
-        private BusinessObjects.Employee ceo;
         private BusinessObjects.PersonPhone existingCeoNumber;
         private BusinessObjects.PersonPhone newCeoNumber;
         private BusinessObjects.PersonPhone nonEmployeeNumber;
 
         [SetUp]
-        public void SetUp()
+        public override void SetUp()
         {
-            // New instances of the mocks
-            mockEmployeeDa = new Mock<IEmployeeDA>();
-            mockPhoneDa = new Mock<IPersonPhoneDA>();
-            mockAppReader = new Mock<IAppSettingReader>();
+            // Do the base setup
+            base.SetUp();
 
-            // Mock the app reader/web.config for each method. Determines which DataAccess method will be used.
-            mockAppReader.Setup(x => x.GetAppSetting(TestData.DataAccessMethodKey)).Returns(TestData.DataAccessMethodEntityFramework);
-
-            // Create test data
-            ceo = GetCeoEmployeeBo();
+            // Create additional test data
             existingCeoNumber = GetCeoPhoneBo();
             newCeoNumber = GetCeoPhoneBo();
-            newCeoNumber.PhoneNumber = "123-456-7890";
+            newCeoNumber.PhoneNumber = TestData.AlternativePhoneNumber;
             nonEmployeeNumber = GetCeoPhoneBo();
-            nonEmployeeNumber.BusinessEntityId = 2;
+            nonEmployeeNumber.BusinessEntityId = TestData.AlternativeBusinessEntityId;
         }
 
         [Test]
         public void AddPhoneNumber_EmployeeExistsAndNumberNotDuplicate_PhoneNumberAddedAndTrueReturned()
         {
             // Arrange
-            mockEmployeeDa.Setup(x => x.GetEmployeeByBusinessEntityIdAsync(ceo.BusinessEntityId)).ReturnsAsync(ceo);
-            mockPhoneDa.Setup(x => x.GetPhoneNumbersByBusinessEntityIdAsync(existingCeoNumber.BusinessEntityId))
-                .ReturnsAsync(new List<BusinessObjects.PersonPhone> { existingCeoNumber });
+            mockEmployeeDa.Setup(x => x.GetEmployeeByBusinessEntityIdAsync(newCeoNumber.BusinessEntityId)).ReturnsAsync(ceo);
+            mockPhoneDa.Setup(x => x.GetPhoneNumberAsync(
+                existingCeoNumber.BusinessEntityId, 
+                existingCeoNumber.PhoneNumber, 
+                (int)existingCeoNumber.PhoneNumberType))
+                .ReturnsAsync(null);
             mockPhoneDa.Setup(x => x.AddPhoneNumber(newCeoNumber));
-            hr = new HumanResourcesService(mockEmployeeDa.Object, mockPhoneDa.Object, mockAppReader.Object);
+            CreateHumanResourcesService();
 
             // Act
             bool returns = hr.AddPhoneNumber(newCeoNumber);
 
             // Assert
-            // TODO: Verify the DA methods have been called
+            mockEmployeeDa.Verify(x => x.GetEmployeeByBusinessEntityIdAsync(newCeoNumber.BusinessEntityId));
+            mockPhoneDa.Verify(x => x.GetPhoneNumberAsync(
+                newCeoNumber.BusinessEntityId,
+                newCeoNumber.PhoneNumber,
+                (int)newCeoNumber.PhoneNumberType));
+            mockPhoneDa.Verify(x => x.AddPhoneNumber(newCeoNumber));
             Assert.IsTrue(returns);
         }
 
@@ -65,16 +62,23 @@
             // Arrange
             mockEmployeeDa.Setup(x => x.GetEmployeeByBusinessEntityIdAsync(nonEmployeeNumber.BusinessEntityId))
                 .ReturnsAsync((BusinessObjects.Employee)null);
-            mockPhoneDa.Setup(x => x.GetPhoneNumbersByBusinessEntityIdAsync(nonEmployeeNumber.BusinessEntityId))
-                .ReturnsAsync(new List<BusinessObjects.PersonPhone> { existingCeoNumber });
-            mockPhoneDa.Setup(x => x.AddPhoneNumber(nonEmployeeNumber)).Throws(new System.Exception());
-            hr = new HumanResourcesService(mockEmployeeDa.Object, mockPhoneDa.Object, mockAppReader.Object);
+            mockPhoneDa.Setup(x => x.GetPhoneNumberAsync(
+                nonEmployeeNumber.BusinessEntityId,
+                nonEmployeeNumber.PhoneNumber,
+                (int)nonEmployeeNumber.PhoneNumberType))
+                .ReturnsAsync(existingCeoNumber);
+            CreateHumanResourcesService();
 
             // Act
             bool returns = hr.AddPhoneNumber(nonEmployeeNumber);
 
             // Assert
-            // TODO: Verify the DA methods have been called
+            mockEmployeeDa.Verify(x => x.GetEmployeeByBusinessEntityIdAsync(nonEmployeeNumber.BusinessEntityId));
+            mockPhoneDa.Verify(x => x.GetPhoneNumberAsync(
+                nonEmployeeNumber.BusinessEntityId,
+                nonEmployeeNumber.PhoneNumber,
+                (int)nonEmployeeNumber.PhoneNumberType));
+            mockPhoneDa.Verify(x => x.AddPhoneNumber(It.IsAny<BusinessObjects.PersonPhone>()), Times.Never());
             Assert.IsFalse(returns);
         }
 
@@ -84,16 +88,24 @@
             // Arrange
             mockEmployeeDa.Setup(x => x.GetEmployeeByBusinessEntityIdAsync(existingCeoNumber.BusinessEntityId))
                 .ReturnsAsync(ceo);
-            mockPhoneDa.Setup(x => x.GetPhoneNumbersByBusinessEntityIdAsync(existingCeoNumber.BusinessEntityId))
-                .ReturnsAsync(new List<BusinessObjects.PersonPhone> { existingCeoNumber });
+            mockPhoneDa.Setup(x => x.GetPhoneNumberAsync(
+                existingCeoNumber.BusinessEntityId,
+                existingCeoNumber.PhoneNumber,
+                (int)existingCeoNumber.PhoneNumberType))
+                .ReturnsAsync(existingCeoNumber);
             mockPhoneDa.Setup(x => x.AddPhoneNumber(existingCeoNumber)).Throws(new System.Exception());
-            hr = new HumanResourcesService(mockEmployeeDa.Object, mockPhoneDa.Object, mockAppReader.Object);
+            CreateHumanResourcesService();
 
             // Act
             bool returns = hr.AddPhoneNumber(existingCeoNumber);
 
             // Assert
-            // TODO: Verify the DA methods have been called
+            mockEmployeeDa.Verify(x => x.GetEmployeeByBusinessEntityIdAsync(existingCeoNumber.BusinessEntityId));
+            mockPhoneDa.Verify(x => x.GetPhoneNumberAsync(
+                existingCeoNumber.BusinessEntityId,
+                existingCeoNumber.PhoneNumber,
+                (int)existingCeoNumber.PhoneNumberType));
+            mockPhoneDa.Verify(x => x.AddPhoneNumber(It.IsAny<BusinessObjects.PersonPhone>()), Times.Never());
             Assert.IsFalse(returns);
         }
     }

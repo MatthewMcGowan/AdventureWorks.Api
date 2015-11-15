@@ -16,32 +16,13 @@ namespace AdventureWorks.Business.Test.HumanResourcesService
     [TestFixture]
     public class GetEmployeesTests : BaseHumanResourcesTests
     {
-        private HumanResourcesService hr;
-        private Mock<IEmployeeDA> mockEmployeeDa;
-        private Mock<IPersonPhoneDA> mockPhoneDa;
-        private Mock<IAppSettingReader> mockAppReader;
-        private Mock<List<BusinessObjects.Employee>> mockEmployeeList;
-        private BusinessObjects.Employee ceo;
-
-        [SetUp]
-        public void SetUp()
-        {
-            mockEmployeeDa = new Mock<IEmployeeDA>();
-            mockPhoneDa = new Mock<IPersonPhoneDA>();
-            mockAppReader = new Mock<IAppSettingReader>();
-
-            mockAppReader.Setup(x => x.GetAppSetting(TestData.DataAccessMethodKey)).Returns(TestData.DataAccessMethodEntityFramework);
-
-            ceo = GetCeoEmployeeBo();
-        }
-
         [Test]
         public void GetEmployees_EmployeesListReturnedFromDataAccessLayer_SameListReturnedFromMethod()
         {
             // Arrange
             var employeeList = new List<BusinessObjects.Employee>() { ceo };
             mockEmployeeDa.Setup(x => x.GetAllEmployees()).Returns(employeeList);
-            hr = new HumanResourcesService(mockEmployeeDa.Object, mockPhoneDa.Object, mockAppReader.Object);
+            CreateHumanResourcesService();
 
             // Act
             var result = hr.GetEmployees();
@@ -57,7 +38,7 @@ namespace AdventureWorks.Business.Test.HumanResourcesService
         {
             // Arrange
             mockEmployeeDa.Setup(x => x.GetAllEmployees()).Returns(new List<BusinessObjects.Employee>());
-            hr = new HumanResourcesService(mockEmployeeDa.Object, mockPhoneDa.Object, mockAppReader.Object);
+            CreateHumanResourcesService();
 
             // Act
             var result = hr.GetEmployees();

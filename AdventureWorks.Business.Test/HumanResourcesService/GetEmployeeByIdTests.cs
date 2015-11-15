@@ -16,30 +16,12 @@ namespace AdventureWorks.Business.Test.HumanResourcesService
     [TestFixture]
     public class GetEmployeeByIdTests : BaseHumanResourcesTests
     {
-        private HumanResourcesService hr;
-        private Mock<IEmployeeDA> mockEmployeeDa;
-        private Mock<IPersonPhoneDA> mockPhoneDa;
-        private Mock<IAppSettingReader> mockAppReader;
-        private BusinessObjects.Employee ceo;
-
-        [SetUp]
-        public void SetUp()
-        {
-            mockEmployeeDa = new Mock<IEmployeeDA>();
-            mockPhoneDa = new Mock<IPersonPhoneDA>();
-            mockAppReader = new Mock<IAppSettingReader>();
-
-            mockAppReader.Setup(x => x.GetAppSetting(TestData.DataAccessMethodKey)).Returns(TestData.DataAccessMethodEntityFramework);
-
-            ceo = GetCeoEmployeeBo();
-        }
-
         [Test]
         public void GetEmployeeById_IdGiven_DataAccessGetEmployeeByBusinessEntityIdCalled()
         {
             // Arrange
             mockEmployeeDa.Setup(x => x.GetEmployeeByBusinessEntityId(It.IsAny<int>())).Returns(It.IsAny<BusinessObjects.Employee>);
-            hr = new HumanResourcesService(mockEmployeeDa.Object, mockPhoneDa.Object, mockAppReader.Object);
+            CreateHumanResourcesService();
 
             // Act
             hr.GetEmployeeById(TestData.CeoBusinessEntityId);
@@ -54,13 +36,13 @@ namespace AdventureWorks.Business.Test.HumanResourcesService
             // Arrange
             mockEmployeeDa.Setup(x => x.GetEmployeeByBusinessEntityId(ceo.BusinessEntityId))
                 .Returns(ceo);
-            hr = new HumanResourcesService(mockEmployeeDa.Object, mockPhoneDa.Object, mockAppReader.Object);
+            CreateHumanResourcesService();
 
             // Act
             var result = hr.GetEmployeeById(TestData.CeoBusinessEntityId);
 
             // Assert
-            // TODO: Verify the DA method has been called
+            mockEmployeeDa.Verify(x => x.GetEmployeeByBusinessEntityId(TestData.CeoBusinessEntityId));
             Assert.IsTrue(result.Equals(ceo));
         }
 
@@ -69,13 +51,13 @@ namespace AdventureWorks.Business.Test.HumanResourcesService
         {
             // Arrange
             mockEmployeeDa.Setup(x => x.GetEmployeeByBusinessEntityId(It.IsAny<int>())).Returns((BusinessObjects.Employee)null);
-            hr = new HumanResourcesService(mockEmployeeDa.Object, mockPhoneDa.Object, mockAppReader.Object);
+            CreateHumanResourcesService();
 
             // Act
             var result = hr.GetEmployeeById(TestData.CeoBusinessEntityId);
 
             // Assert
-            // TODO: Verify the DA method have been called
+            mockEmployeeDa.Verify(x => x.GetEmployeeByBusinessEntityId(TestData.CeoBusinessEntityId));
             Assert.IsNull(result);
         }
     }

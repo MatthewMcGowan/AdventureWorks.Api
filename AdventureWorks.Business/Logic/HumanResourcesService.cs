@@ -66,15 +66,27 @@ namespace AdventureWorks.Business
 
         public bool UpdateEmployee(BusinessObjects.Employee employee)
         {
+            // Check business object sent is valid, and the employee exists
+            if (employee == null 
+                || employee.BusinessEntityId < 0
+                || EmployeeDA.GetEmployeeByBusinessEntityId(employee.BusinessEntityId) == null)
+            {
+                return false;
+            }
+
             EmployeeDA.UpdateEmployee(employee);
             return true;
+        }
+
+        public List<BusinessObjects.PersonPhone> GetPhoneNumbersByEmployeeId(int id)
+        {
+            return PhoneDA.GetPersonPhonesByBusinessEntityId(id);
         }
 
         public bool AddPhoneNumber(BusinessObjects.PersonPhone phone)
         {
             // Check if an employee, and that this number does not already exist
-            var check = CheckEmployeeExistsAndNumberDoesnt(phone);
-            if(!check.Result)
+            if(!CheckEmployeeExistsAndNumberDoesnt(phone).Result)
             {
                 return false;
             }
@@ -86,12 +98,9 @@ namespace AdventureWorks.Business
 
         public bool DeletePhoneNumber(BusinessObjects.PersonPhone phone)
         {
-            // Ensure person is an employee
-            var employee = EmployeeDA.GetEmployeeByBusinessEntityId(phone.BusinessEntityId);
-
-            if (employee == null)
+            // Check phone number exists, and that this business entity is an employee
+            if (!CheckEmployeeAndPhoneNumberExist(phone).Result)
             {
-                // Rather than updating a non-employee, return false
                 return false;
             }
 
@@ -104,18 +113,34 @@ namespace AdventureWorks.Business
 
         #region Private Methods
 
-        private async Task<bool> CheckEmployeeExistsAndNumberDoesnt(BusinessObjects.PersonPhone phone)
+        private async Task<bool> CheckEmployeeAndPhoneNumberExist(BusinessObjects.PersonPhone phone)
         {
-            // Get numbers for this business entity Id
-            var employeeNumbersTask = PhoneDA.GetPhoneNumbersByBusinessEntityIdAsync(phone.BusinessEntityId);
+            // Get phone number
+            var phoneTask = PhoneDA.GetPhoneNumberAsync(phone.BusinessEntityId, phone.PhoneNumber, (int)phone.PhoneNumberType);
 
-            // Ensure person is an employee
+            // Get employee
             var employeeTask = EmployeeDA.GetEmployeeByBusinessEntityIdAsync(phone.BusinessEntityId);
 
-            // If added number already exists, or not an employee, don't add number
-            List<BusinessObjects.PersonPhone> numbers = await employeeNumbersTask;
-            BusinessObjects.Employee employee = await employeeTask;
-            if (employee == null || numbers.Any(n => n.Equals(phone)))
+            // If either of these are null, return false
+            if(await phoneTask == null || await employeeTask == null)
+            {
+                return false;
+            }
+
+            // Otherwise both exist, so return true
+            return true;
+        }
+
+        private async Task<bool> CheckEmployeeExistsAndNumberDoesnt(BusinessObjects.PersonPhone phone)
+        {
+            // Get phone number
+            var phoneTask = PhoneDA.GetPhoneNumberAsync(phone.BusinessEntityId, phone.PhoneNumber, (int)phone.PhoneNumberType);
+
+            // Get employee
+            var employeeTask = EmployeeDA.GetEmployeeByBusinessEntityIdAsync(phone.BusinessEntityId);
+
+            // If added number already exists, or not an employee, return false
+            if (await phoneTask != null || await employeeTask == null)
             {
                 return false;
             }
