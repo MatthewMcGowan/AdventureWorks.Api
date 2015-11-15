@@ -18,6 +18,10 @@ namespace AdventureWorks.TestData
         public const string CeoPhoneNumber = "697-555-0142";
         public const Enumerations.PhoneNumberTypeEnum CeoPhoneNumberType = Enumerations.PhoneNumberTypeEnum.Cell;
 
+        public const int AlternativeBusinessEntityId = 2;
+        public const string AlternativeFirstName = "Gary";
+        public const string AlternativePhoneNumber = "123-456-7890";
+
         #endregion
 
         #region Web.config Data

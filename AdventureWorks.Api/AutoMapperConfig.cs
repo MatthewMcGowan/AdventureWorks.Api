@@ -18,6 +18,7 @@ namespace AdventureWorks.Api
 
             // Phone Number
             Mapper.CreateMap<EmployeePhoneModel, BusinessObjects.PersonPhone>();
+            Mapper.CreateMap<BusinessObjects.PersonPhone, EmployeePhoneModel>();
         }
     }
 }

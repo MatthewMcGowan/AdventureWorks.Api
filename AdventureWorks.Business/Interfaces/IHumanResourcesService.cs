@@ -14,6 +14,8 @@ namespace AdventureWorks.Business.Interfaces
 
         bool UpdateEmployee(BusinessObjects.Employee employee);
 
+        List<BusinessObjects.PersonPhone> GetPhoneNumbersByEmployeeId(int id);
+
         bool AddPhoneNumber(BusinessObjects.PersonPhone phone);
 
         bool DeletePhoneNumber(BusinessObjects.PersonPhone phone);
