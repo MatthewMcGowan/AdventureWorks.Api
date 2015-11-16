@@ -22,7 +22,7 @@ namespace AdventureWorks.Data.TableAdapter.Core
 
         public EmployeeDA()
         {
-
+            employeeAdapter = new EmployeePersonTableAdapter();
         }
 
         #endregion
@@ -31,25 +31,26 @@ namespace AdventureWorks.Data.TableAdapter.Core
 
         public List<BusinessObjects.Employee> GetAllEmployees()
         {
-            employeeAdapter = new EmployeePersonTableAdapter();
             dsAdventureWorks2012.EmployeePersonDataTable employees = employeeAdapter.GetData();
             return employees.MapToBusinessLayer();
         }
 
         public BusinessObjects.Employee GetEmployeeByBusinessEntityId(int id)
         {
-            employeeAdapter = new EmployeePersonTableAdapter();
-            dsAdventureWorks2012.EmployeePersonRow employee = employeeAdapter.GetEmployeePersonById(id).FirstOrDefault();
+            var employee = employeeAdapter.GetEmployeePersonById(id).FirstOrDefault();
             return employee.MapToBusinessLayer();
         }
 
         public Task<BusinessObjects.Employee> GetEmployeeByBusinessEntityIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return Task.Run(() => (employeeAdapter.GetEmployeePersonById(id).FirstOrDefault()).MapToBusinessLayer());
         }
 
-        public void UpdateEmployee(BusinessObjects.Employee employee)
+        public void UpdateEmployee(BusinessObjects.Employee e)
         {
+            var updatedEmployee = 
+                employeeAdapter.UpdateEmployeePerson(e.JobTitle, e.BusinessEntityId, e.FirstName, e.MiddleName, e.LastName);
+
             throw new NotImplementedException();
         }
 
