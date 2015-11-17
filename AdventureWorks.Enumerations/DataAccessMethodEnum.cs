@@ -12,6 +12,6 @@ namespace AdventureWorks.Enumerations
 
         Dapper = 1,
 
-        DataAdapter = 2
+        TableAdapter = 2
     }
 }

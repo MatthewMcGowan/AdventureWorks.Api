@@ -35,6 +35,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,7 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\BaseDA.cs" />
     <Compile Include="Core\EmployeeDA.cs" />
+    <Compile Include="Core\PersonPhoneDA.cs" />
+    <Compile Include="Extensions\MappingExtensions.cs" />
     <Compile Include="Objects\Employee.cs" />
     <Compile Include="Objects\Phone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,10 +65,12 @@
       <Project>{233a6633-d68a-45e2-9fb5-6b1e24eac5f2}</Project>
       <Name>AdventureWorks.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AdventureWorks.Enumerations\AdventureWorks.Enumerations.csproj">
+      <Project>{6946274F-9318-4462-BF6E-AD874BC2695A}</Project>
+      <Name>AdventureWorks.Enumerations</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -34,12 +34,17 @@ namespace AdventureWorks.Business
         public HumanResourcesService() : base()
         {
             IEmployeeDA employeeDA;
-            IPersonPhoneDA personPhoneDA;
+            IPersonPhoneDA employeePhoneDA;
 
             if (DataMethod == 0)
             {
                 employeeDA = new Data.EntityFramework.Core.EmployeeDA();
-                personPhoneDA = new Data.EntityFramework.Core.PersonPhoneDA();
+                employeePhoneDA = new Data.EntityFramework.Core.PersonPhoneDA();
+            }
+            else if (DataMethod == 1)
+            {
+                employeeDA = new Data.Dapper.Core.EmployeeDA();
+                employeePhoneDA = new Data.Dapper.Core.PersonPhoneDA();
             }
             else
             {
@@ -47,7 +52,7 @@ namespace AdventureWorks.Business
             }
 
             EmployeeDA = employeeDA;
-            PhoneDA = personPhoneDA;
+            PhoneDA = employeePhoneDA;
         }
 
         #endregion
