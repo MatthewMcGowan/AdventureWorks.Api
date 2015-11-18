@@ -32,7 +32,7 @@ namespace AdventureWorks.Data.Dapper.Core
         {
             // SQL query for phone numbers for a particular employee
             string query = "SELECT e.BusinessEntityID, p.PhoneNumber, p.PhoneNumberTypeID "
-                + "FROM HumanResources.Employee AS e INNER JOIN Person.PersonPhone AS p ON e.BusinessEntityID = p.BusinessEntityID"
+                + "FROM HumanResources.Employee AS e INNER JOIN Person.PersonPhone AS p ON e.BusinessEntityID = p.BusinessEntityID "
                 + "WHERE e.BusinessEntityID = @BusinessEntityID";
 
             // Return queried objects in list
@@ -44,7 +44,7 @@ namespace AdventureWorks.Data.Dapper.Core
             // SQL to get a particular phone number
             // Being an employee is not a requirement for this
             string query = "SELECT BusinessEntityId, PhoneNumber, PhoneNumberTypeID FROM Person.PersonPhone "
-                + "WHERE BusinessEntityID = @BusinessEntityID AND PhoneNumber = @PhoneNumber AND PhoneNumberType = @PhoneNumberType";
+                + "WHERE BusinessEntityID = @BusinessEntityID AND PhoneNumber = @PhoneNumber AND PhoneNumberTypeID = @PhoneNumberType";
 
             // Return object if found
             return Task.Run(() => 
@@ -58,7 +58,7 @@ namespace AdventureWorks.Data.Dapper.Core
         {
             // SQL query adding new row to Person.PersonPhone
             string query = "INSERT INTO Person.PersonPhone (BusinessEntityID, PhoneNumber, PhoneNumberTypeID) "
-                + "VALUES (@BusinessEntityID, @PhoneNumber, @PhoneNumberTypeID";
+                + "VALUES (@BusinessEntityID, @PhoneNumber, @PhoneNumberTypeID)";
 
             // Execute query
             cnn.Execute(query, phoneNumber.MapToParams());
